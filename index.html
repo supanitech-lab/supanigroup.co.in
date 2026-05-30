@@ -48,11 +48,47 @@ margin-top:8px;
 opacity:.95;
 }
 
+/* --- NEW TAB STYLES --- */
+.tab-container {
+display: flex;
+justify-content: center;
+background: #002350;
+padding: 10px;
+flex-wrap: wrap;
+gap: 10px;
+position: sticky;
+top: 0;
+z-index: 1000;
+}
+
+.tab-btn {
+background: transparent;
+color: white;
+border: 2px solid transparent;
+padding: 10px 20px;
+font-size: 15px;
+font-weight: bold;
+cursor: pointer;
+border-radius: 6px;
+transition: 0.3s;
+}
+
+.tab-btn:hover {
+background: rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn.active {
+background: #0077cc;
+border-color: #0077cc;
+}
+
 .services{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 gap:20px;
 padding:25px;
+max-width: 1200px;
+margin: 0 auto;
 }
 
 .card{
@@ -61,6 +97,12 @@ padding:20px;
 border-radius:14px;
 box-shadow:0 5px 14px rgba(0,0,0,.08);
 text-align:center;
+transition: transform 0.3s;
+}
+
+/* This class hides content when a tab is unselected */
+.hidden {
+display: none !important;
 }
 
 .service-img{
@@ -85,6 +127,8 @@ padding:30px;
 border-radius:14px;
 text-align:center;
 box-shadow:0 8px 20px rgba(0,0,0,.15);
+max-width: 600px;
+margin: 30px auto;
 }
 
 .whatsapp{
@@ -111,121 +155,92 @@ margin-top:30px;
 <body>
 
 <div class="header">
-
 <img src="supani logo.jpeg" class="logo">
-
 <h1>SUPANI TECHNOLOGIES</h1>
-
-<p class="caption">
-Smart Security • Hardware • Networking Solutions
-</p>
-
-<p class="subcaption">
-Reliable Technology Services for Home & Business
-</p>
-
+<p class="caption">Smart Security • Hardware • Networking Solutions</p>
+<p class="subcaption">Reliable Technology Services for Home & Business</p>
 </div>
 
-
+<div class="tab-container">
+<button class="tab-btn active" onclick="filterService('all')">All Services</button>
+<button class="tab-btn" onclick="filterService('cctv')">📹 CCTV</button>
+<button class="tab-btn" onclick="filterService('computer')">💻 Computer</button>
+<button class="tab-btn" onclick="filterService('networking')">🌐 Networking</button>
+<button class="tab-btn" onclick="filterService('software')">🖥 Software</button>
+</div>
 
 <div class="services">
 
-<div class="card">
-
-<img class="service-img"
-src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400">
-
+<div class="card service-card" id="cctv">
+<img class="service-img" src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400">
 <h3>📹 CCTV Services</h3>
-
 <p>Professional CCTV installation, setup and security monitoring support.</p>
-
 </div>
 
-
-
-<div class="card">
-
-<img class="service-img"
-src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400">
-
+<div class="card service-card" id="computer">
+<img class="service-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400">
 <h3>💻 Computer Sales & Service</h3>
-
 <p>Laptops, desktops, repairs, upgrades and accessories.</p>
-
 </div>
 
-
-
-<div class="card">
-
-<img class="service-img"
-src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400">
-
+<div class="card service-card" id="networking">
+<img class="service-img" src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400">
 <h3>🌐 Networking Services</h3>
-
 <p>Wi-Fi setup, routers, LAN cabling and office network solutions.</p>
-
 </div>
 
-
-
-<div class="card">
-
-<img class="service-img"
-src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400">
-
+<div class="card service-card" id="software">
+<img class="service-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400">
 <h3>🖥 Software Services</h3>
-
 <p>Software installation, troubleshooting and IT support.</p>
-
 </div>
 
 </div>
-
-
 
 <div class="contact">
-
-<h2 style="color:#FFD700;font-size:30px;">
-🚀 24/7 Door Step Service
-</h2>
-
-<p style="font-size:22px;font-weight:bold;">
-Panigrahi Sujith
-</p>
-
-<p style="font-size:15px;">
-Founder & Technical Service Head
-</p>
-
-<p>📍 Pathapatnam / parlakhemundi / tekkali</p>
-
-<p style="font-size:18px;">
-📞 9490387123 / 9490187123
-</p>
-
+<h2 style="color:#FFD700;font-size:30px;">🚀 24/7 Door Step Service</h2>
+<p style="font-size:22px;font-weight:bold;">Panigrahi Sujith</p>
+<p style="font-size:15px;">Founder & Technical Service Head</p>
+<p>📍 Your Location</p>
+<p style="font-size:18px;">📞 9490387123 / 9490187123</p>
 <p>📧 supanitech@gmail.com</p>
-
-<a class="whatsapp"
-href="https://wa.me/919490387123">
-
-💬 WhatsApp Us
-
-</a>
-
+<a class="whatsapp" href="https://wa.me/919490387123">💬 WhatsApp Us</a>
 </div>
-
-
 
 <div class="footer">
-
 <p>SUPANI TECHNOLOGIES © 2026</p>
-
-<p style="color:#ddd;">
-Reliable Technology • Trusted Service • Customer First
-</p>
-
+<p style="color:#ddd;">Reliable Technology • Trusted Service • Customer First</p>
 </div>
+
+<script>
+function filterService(serviceId) {
+    // Get all service cards
+    const cards = document.querySelectorAll('.service-card');
+    // Get all tab buttons
+    const buttons = document.querySelectorAll('.tab-btn');
+    
+    // Update active tab styling
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+        if(btn.getAttribute('onclick').includes(serviceId)) {
+            btn.classList.add('active');
+        }
+    });
+
+    // Show/Hide service cards based on selection
+    cards.forEach(card => {
+        if (serviceId === 'all') {
+            card.classList.remove('hidden');
+        } else {
+            if (card.id === serviceId) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        }
+    });
+}
+</script>
 
 </body>
 </html>
