@@ -1,192 +1,231 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Supani Technologies</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supani Technologies</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-<style>
-body{
-font-family:Arial,sans-serif;
-margin:0;
-background:#f5f7fa;
-color:#222;
-}
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+        }
 
-.header{
-background:linear-gradient(135deg,#003366,#0077cc);
-color:white;
-text-align:center;
-padding:40px 20px;
-}
+        /* Header / Hero Section */
+        header {
+            background: linear-gradient(135deg, #0052D4, #4364F7, #6FB1FC);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
 
-.logo{
-width:120px;
-height:auto;
-border-radius:12px;
-margin-bottom:15px;
-}
+        .logo-container {
+            margin-bottom: 20px;
+        }
 
-.header h1{
-margin:0;
-font-size:34px;
-}
+        /* The Blue SP Logo Box */
+        .logo-box {
+            background-color: #3a91f4;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
 
-.header p{
-font-size:18px;
-margin-top:10px;
-}
+        .logo-sp {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
 
-.services{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
-padding:25px;
-}
+        .logo-text {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
 
-.card{
-background:white;
-padding:20px;
-border-radius:12px;
-box-shadow:0 4px 10px rgba(0,0,0,0.08);
-text-align:center;
-overflow:hidden;
-}
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
 
-.service-img{
-width:100%;
-max-width:220px;
-height:140px;
-object-fit:cover;
-border-radius:10px;
-display:block;
-margin:0 auto 15px;
-}
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
 
-.card h3{
-color:#0077cc;
-margin-bottom:10px;
-}
+        /* Services Grid Container */
+        .container {
+            max-width: 1200px;
+            margin: -40px auto 40px auto;
+            padding: 0 20px;
+        }
 
-.contact{
-background:white;
-margin:20px;
-padding:20px;
-border-radius:12px;
-text-align:center;
-box-shadow:0 4px 10px rgba(0,0,0,0.08);
-}
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
 
-.whatsapp{
-display:inline-block;
-background:#25D366;
-color:white;
-padding:12px 20px;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-margin-top:10px;
-}
+        /* Service Cards */
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            padding: 25px;
+            transition: transform 0.3s ease;
+        }
 
-.footer{
-background:#003366;
-color:white;
-text-align:center;
-padding:15px;
-margin-top:30px;
-}
-</style>
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .card h3 {
+            color: #0052D4;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Footer & Contact Section */
+        footer {
+            background-color: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        footer h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #6FB1FC;
+        }
+
+        .contact-info {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            display: inline-block;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            transition: background 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #20ba5a;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            opacity: 0.6;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="header">
+    <header>
+        <div class="logo-container">
+            <div class="logo-box">
+                <div class="logo-sp">SP</div>
+                <div class="logo-text">Supani</div>
+            </div>
+        </div>
+        <h1>SUPANI TECHNOLOGIES</h1>
+        <p>CCTV • Computer Sales & Service • Maintenance • Software Services</p>
+    </header>
 
-<img src="supani logo.jpeg" class="logo">
+    <div class="container">
+        <div class="services-grid">
+            
+            <div class="card">
+                <span class="card-icon">📹</span>
+                <h3>CCTV Services</h3>
+                <p>Installation, setup and support for CCTV security systems.</p>
+            </div>
 
-<h1>SUPANI TECHNOLOGIES</h1>
+            <div class="card">
+                <span class="card-icon">💻</span>
+                <h3>Computer Sales & Service</h3>
+                <p>Laptops, desktops, repairs and upgrades.</p>
+            </div>
 
-<p>CCTV • Computer Sales & Service • Maintenance • Software Services</p>
+            <div class="card">
+                <span class="card-icon">🛠</span>
+                <h3>Maintenance</h3>
+                <p>Fast and reliable service support for home & office.</p>
+            </div>
 
-</div>
+            <div class="card">
+                <span class="card-icon">🖥</span>
+                <h3>Software Services</h3>
+                <p>Software installation and IT support solutions.</p>
+            </div>
 
+        </div>
+    </div>
 
-<div class="services">
-
-<div class="card">
-
-<img
-class="service-img"
-src="https://images.unsplash.com/photo-1558002038-1055907df827?w=300">
-
-<h3>📹 CCTV Services</h3>
-
-<p>Installation, setup and support for CCTV security systems.</p>
-
-</div>
-
-
-<div class="card">
-
-<img
-class="service-img"
-src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=300">
-
-<h3>💻 Computer Sales & Service</h3>
-
-<p>Laptops, desktops, repairs and upgrades.</p>
-
-</div>
-
-
-<div class="card">
-
-<img
-class="service-img"
-src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=300">
-
-<h3>🛠 Maintenance</h3>
-
-<p>Fast and reliable service support for home & office.</p>
-
-</div>
-
-
-<div class="card">
-
-<img
-class="service-img"
-src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300">
-
-<h3>🖥 Software Services</h3>
-
-<p>Software installation and IT support solutions.</p>
-
-</div>
-
-</div>
-
-
-<div class="contact">
-
-<h2>24/7 Door Step Service</h2>
-
-<p>📞 9490387123 / 9490187123</p>
-
-<p>📧 supanitech@gmail.com</p>
-
-<a class="whatsapp"
-href="https://wa.me/919490387123">
-WhatsApp Us
-</a>
-
-</div>
-
-
-<div class="footer">
-
-Supani Technologies © 2026
-
-</div>
+    <footer>
+        <h2>24/7 Door Step Service</h2>
+        <div class="contact-info">
+            <p>📞 Phone: 9490387123 / 9490187123</p>
+            <p>📧 Email: <a href="mailto:supanitech@gmail.com">supanitech@gmail.com</a></p>
+        </div>
+        <a href="https://wa.me/919490387123" class="whatsapp-btn" target="_blank">WhatsApp Us</a>
+        
+        <div class="copyright">
+            Supani Technologies © 2026
+        </div>
+    </footer>
 
 </body>
 </html>
