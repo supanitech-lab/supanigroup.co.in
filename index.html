@@ -1,307 +1,192 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supani Technologies - Smart Security & IT Solutions</title>
-    <style>
-        /* Global Reset & Typography */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<title>Supani Technologies</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        body {
-            background-color: #f4f7f6;
-            color: #333;
-            line-height: 1.6;
-        }
+<style>
+body{
+font-family:Arial,sans-serif;
+margin:0;
+background:#f5f7fa;
+color:#222;
+}
 
-        /* --- THE ORIGINAL STYLE WITH A CRISP OVERLAY --- */
-        header {
-            position: relative;
-            background: linear-gradient(135deg, rgba(10, 25, 47, 0.92), rgba(0, 40, 85, 0.88)), 
-                        url('https://images.unsplash.com/photo-1506719040430-4d1a511aa64b?auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            padding: 70px 20px;
-            text-align: center;
-            color: #ffffff;
-            border-bottom: 4px solid #007bff;
-        }
+.header{
+background:linear-gradient(135deg,#003366,#0077cc);
+color:white;
+text-align:center;
+padding:40px 20px;
+}
 
-        .header-container {
-            max-width: 850px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.logo{
+width:120px;
+height:auto;
+border-radius:12px;
+margin-bottom:15px;
+}
 
-        /* Profile Image Layout - Hidden automatically until you add your image link */
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #00d2ff;
-            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
-            margin-bottom: 15px;
-        }
+.header h1{
+margin:0;
+font-size:34px;
+}
 
-        /* RESTORED: Your original logo style */
-        .logo-box {
-            font-weight: bold;
-            font-size: 24px;
-            color: #00d2ff;
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
+.header p{
+font-size:18px;
+margin-top:10px;
+}
 
-        header h1 {
-            font-size: 2.6rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-        }
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:20px;
+padding:25px;
+}
 
-        .strong-caption {
-            font-size: 1.25rem;
-            color: #e0e0e0;
-            font-weight: 400;
-            max-width: 750px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
+.card{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+text-align:center;
+overflow:hidden;
+}
 
-        /* Navigation Bar */
-        nav {
-            background-color: #002855;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 12px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+.service-img{
+width:100%;
+max-width:220px;
+height:140px;
+object-fit:cover;
+border-radius:10px;
+display:block;
+margin:0 auto 15px;
+}
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 22px;
-            margin: 4px;
-            font-weight: 600;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
+.card h3{
+color:#0077cc;
+margin-bottom:10px;
+}
 
-        nav a.active, nav a:hover {
-            background-color: #007bff;
-        }
+.contact{
+background:white;
+margin:20px;
+padding:20px;
+border-radius:12px;
+text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
 
-        /* Main Content Grid */
-        .container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+.whatsapp{
+display:inline-block;
+background:#25D366;
+color:white;
+padding:12px 20px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+margin-top:10px;
+}
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .service-card {
-            background: #ffffff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-            transition: transform 0.3s ease;
-            border-top: 4px solid #007bff;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-img {
-            height: 180px;
-            background-size: cover;
-            background-position: center;
-            background-color: #ddd;
-        }
-
-        .img-cctv { background-image: url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?auto=format&fit=crop&w=500&q=80'); }
-        .img-comp { background-image: url('https://images.unsplash.com/photo-1588508065123-287b28e013da?auto=format&fit=crop&w=500&q=80'); }
-        .img-net { background-image: url('https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=500&q=80'); }
-        .img-soft { background-image: url('https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=500&q=80'); }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card-content h2 {
-            font-size: 1.4rem;
-            margin-bottom: 12px;
-            color: #002855;
-        }
-
-        .card-content p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        /* Footer & Contact Section */
-        footer {
-            background-color: #0f172a;
-            color: #a0aec0;
-            padding: 50px 20px 20px 20px;
-            text-align: center;
-        }
-
-        .footer-card {
-            max-width: 500px;
-            margin: 0 auto 30px auto;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 30px;
-            border-radius: 12px;
-        }
-
-        .footer-card h2 {
-            color: #fff;
-            margin-bottom: 5px;
-            font-size: 1.6rem;
-        }
-
-        .founder-name {
-            color: #00d2ff;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .contact-info {
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: #e0e0e0;
-        }
-
-        .whatsapp-btn {
-            display: inline-block;
-            background-color: #25d366;
-            color: #fff;
-            text-decoration: none;
-            padding: 12px 30px;
-            font-weight: bold;
-            border-radius: 30px;
-            transition: transform 0.2s ease;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.05);
-        }
-
-        .copyright {
-            margin-top: 30px;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
-            color: #718096;
-        }
-
-        @media (max-width: 768px) {
-            header h1 { font-size: 2rem; }
-            nav a { padding: 8px 14px; font-size: 0.85rem; }
-        }
-    </style>
+.footer{
+background:#003366;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:30px;
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <div class="header-container">
-            <img src="my-profile.jpg" alt="Panigrahi Sujith" class="profile-img" onerror="this.style.display='none'">
-            
-            <div class="logo-box">*****SP*****</div>
-            <h1>SUPANI TECHNOLOGIES</h1>
-            <div class="strong-caption"><strong>RAPID 24/7 DOORSTEP TECH REPAIR & HIGH-DEFINITION CCTV INSTALLATION</strong><br><br><i>Your trusted source for professional on-site engineering, comprehensive systems security, and structural hardware configurations.</i></div>
-        </div>
-    </header>
+<div class="header">
 
-    <nav>
-        <a href="#" class="active">All Services</a>
-        <a href="#">📹 CCTV</a>
-        <a href="#">💻 Computer</a>
-        <a href="#">🌐 Networking</a>
-        <a href="#">🖥 Software</a>
-    </nav>
+<img src="supani logo.jpeg" class="logo">
 
-    <div class="container">
-        <div class="services-grid">
-            
-            <div class="service-card">
-                <div class="card-img img-cctv"></div>
-                <div class="card-content">
-                    <h2>📹 CCTV Services</h2>
-                    <p>Professional CCTV camera installation, HD monitoring setup, remote mobile view configurations, and complete security support layouts.</p>
-                </div>
-            </div>
+<h1>SUPANI TECHNOLOGIES</h1>
 
-            <div class="service-card">
-                <div class="card-img img-comp"></div>
-                <div class="card-content">
-                    <h2>💻 Computer Sales & Service</h2>
-                    <p>Multi-brand laptop and desktop diagnosis, structural hardware upgrading, parts replacement, custom PC builds, and genuine accessories.</p>
-                </div>
-            </div>
+<p>CCTV • Computer Sales & Service • Maintenance • Software Services</p>
 
-            <div class="service-card">
-                <div class="card-img img-net"></div>
-                <div class="card-content">
-                    <h2>🌐 Networking Services</h2>
-                    <p>High-speed enterprise Wi-Fi system deployment, stable router setups, structural LAN office cabling, and robust local connection debugging solutions.</p>
-                </div>
-            </div>
+</div>
 
-            <div class="service-card">
-                <div class="card-img img-soft"></div>
-                <div class="card-content">
-                    <h2>🖥 Software Services</h2>
-                    <p>Operating system installations, critical software troubleshooting, data recovery operations, system virus cleaning, and remote IT service assistance.</p>
-                </div>
-            </div>
 
-        </div>
-    </div>
+<div class="services">
 
-    <footer>
-        <div class="footer-card">
-            <h2>🚀 24/7 Door Step Service</h2>
-            <div class="founder-name">Panigrahi Sujith</div>
-            <p style="font-size: 0.9rem; color:#a0aec0; margin-bottom: 15px;">Founder & Technical Service Head</p>
-            
-            <div class="contact-info">
-                <p>📍 On-Call Support & On-Site Deployments</p>
-                <p>📞 9490387123 / 9490187123</p>
-                <p>📧 supanitech@gmail.com</p>
-            </div>
+<div class="card">
 
-            <a href="https://wa.me/919490387123" class="whatsapp-btn" target="_blank">💬 WhatsApp Us</a>
-        </div>
+<img
+class="service-img"
+src="https://images.unsplash.com/photo-1558002038-1055907df827?w=300">
 
-        <div class="copyright">
-            <p>SUPANI TECHNOLOGIES &copy; 2026</p>
-            <p style="margin-top: 5px; font-weight: 300;">Reliable Technology • Trusted Service • Customer First</p>
-        </div>
-    </footer>
+<h3>📹 CCTV Services</h3>
+
+<p>Installation, setup and support for CCTV security systems.</p>
+
+</div>
+
+
+<div class="card">
+
+<img
+class="service-img"
+src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=300">
+
+<h3>💻 Computer Sales & Service</h3>
+
+<p>Laptops, desktops, repairs and upgrades.</p>
+
+</div>
+
+
+<div class="card">
+
+<img
+class="service-img"
+src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=300">
+
+<h3>🛠 Maintenance</h3>
+
+<p>Fast and reliable service support for home & office.</p>
+
+</div>
+
+
+<div class="card">
+
+<img
+class="service-img"
+src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300">
+
+<h3>🖥 Software Services</h3>
+
+<p>Software installation and IT support solutions.</p>
+
+</div>
+
+</div>
+
+
+<div class="contact">
+
+<h2>24/7 Door Step Service</h2>
+
+<p>📞 9490387123 / 9490187123</p>
+
+<p>📧 supanitech@gmail.com</p>
+
+<a class="whatsapp"
+href="https://wa.me/919490387123">
+WhatsApp Us
+</a>
+
+</div>
+
+
+<div class="footer">
+
+Supani Technologies © 2026
+
+</div>
 
 </body>
 </html>
