@@ -35,8 +35,23 @@
         .header-container {
             max-width: 850px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
+        /* Profile Image Layout - Hidden automatically until you add your image link */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #00d2ff;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
+            margin-bottom: 15px;
+        }
+
+        /* RESTORED: Your original logo style */
         .logo-box {
             font-weight: bold;
             font-size: 24px;
@@ -213,7 +228,9 @@
 
     <header>
         <div class="header-container">
-            <div class="logo-box">***SP***</div>
+            <img src="my-profile.jpg" alt="Panigrahi Sujith" class="profile-img" onerror="this.style.display='none'">
+            
+            <div class="logo-box">*****SP*****</div>
             <h1>SUPANI TECHNOLOGIES</h1>
             <div class="strong-caption"><strong>RAPID 24/7 DOORSTEP TECH REPAIR & HIGH-DEFINITION CCTV INSTALLATION</strong><br><br><i>Your trusted source for professional on-site engineering, comprehensive systems security, and structural hardware configurations.</i></div>
         </div>
