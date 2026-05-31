@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Supani Technologies | CCTV & IT Solutions</title>
+<title>Supani Technologies | Led by Panigrahi Sujith</title>
 
 <style>
 :root {
@@ -12,6 +12,7 @@
     --accent: #25D366;
     --dark: #222222;
     --light: #f5f7fa;
+    --text-muted: #555555;
 }
 
 body {
@@ -22,48 +23,148 @@ body {
     line-height: 1.6;
 }
 
-.header {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+/* Navigation Bar */
+.navbar {
+    background: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.logo {
-    width: 120px;
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo {
+    width: 45px;
     height: auto;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 6px;
 }
 
-.header h1 {
+.nav-brand h2 {
     margin: 0;
-    font-size: 38px;
-    letter-spacing: 1px;
+    font-size: 20px;
+    color: var(--primary);
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--secondary);
+}
+
+/* Trust Header / Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #ffffff, #eef2f7);
+    padding: 60px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-image-container {
+    flex: 1;
+    text-align: center;
+    max-width: 450px;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(0,33,102,0.15);
+    border: 4px solid white;
+}
+
+.hero-content {
+    flex: 1.2;
+    max-width: 600px;
+}
+
+.tagline {
+    color: var(--secondary);
+    font-weight: bold;
     text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 13px;
+    margin-bottom: 10px;
+    display: block;
 }
 
-.header p {
-    font-size: 18px;
-    margin-top: 12px;
-    opacity: 0.9;
-    font-weight: 300;
+.hero-content h1 {
+    font-size: 36px;
+    color: var(--primary);
+    margin: 0 0 20px 0;
+    line-height: 1.2;
 }
 
+.hero-story {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.hero-quote {
+    background: white;
+    border-left: 4px solid var(--secondary);
+    padding: 15px;
+    font-style: italic;
+    margin: 25px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    border-radius: 0 8px 8px 0;
+}
+
+.hero-btn {
+    display: inline-block;
+    background: var(--primary);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.hero-btn:hover {
+    background: var(--secondary);
+}
+
+/* Services Grid */
 .section-title {
     text-align: center;
-    margin-top: 40px;
+    margin: 60px 0 20px;
     color: var(--primary);
-    font-size: 28px;
+    font-size: 30px;
 }
 
 .services {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
-    padding: 30px 20px;
+    padding: 0 20px 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -72,14 +173,13 @@ body {
     background: white;
     padding: 25px;
     border-radius: 16px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.04);
     text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
 }
 
 .service-img {
@@ -87,64 +187,27 @@ body {
     height: 160px;
     object-fit: cover;
     border-radius: 12px;
-    display: block;
-    margin: 0 auto 18px;
+    margin-bottom: 18px;
 }
 
 .card h3 {
     color: var(--secondary);
     margin-bottom: 12px;
-    font-size: 22px;
 }
 
-.card p {
-    font-size: 15px;
-    color: #555;
-}
-
-.features {
-    background: #eef2f7;
-    padding: 40px 20px;
-    text-align: center;
-}
-
-.features-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-    max-width: 1000px;
-    margin: 20px auto 0;
-}
-
-.feature-item {
-    flex: 1;
-    min-width: 250px;
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
-}
-
-.feature-item h4 {
-    margin: 10px 0;
-    color: var(--primary);
-    font-size: 18px;
-}
-
+/* Contact Area */
 .contact {
     background: white;
-    margin: 40px auto;
-    padding: 35px 20px;
+    margin: 60px auto;
+    padding: 40px 20px;
     border-radius: 16px;
     text-align: center;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.04);
     max-width: 600px;
 }
 
 .contact h2 {
     color: var(--primary);
-    margin-bottom: 5px;
 }
 
 .contact-info {
@@ -166,15 +229,8 @@ body {
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
-    font-size: 16px;
     margin-top: 15px;
-    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-    transition: transform 0.2s, background-color 0.2s;
-}
-
-.whatsapp:hover {
-    background: #20ba56;
-    transform: scale(1.03);
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
 }
 
 .footer {
@@ -182,82 +238,110 @@ body {
     color: white;
     text-align: center;
     padding: 20px;
-    margin-top: 50px;
     font-size: 14px;
-    letter-spacing: 0.5px;
+}
+
+/* Responsive adjustments for phones */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .hero-section {
+        flex-direction: column;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+    .hero-content h1 {
+        font-size: 28px;
+    }
 }
 </style>
 </head>
-
 <body>
 
-<div class="header">
-    <img src="supani logo.jpeg" alt="Supani Technologies Logo" class="logo">
-    <h1>Supani Technologies</h1>
-    <p>Premium CCTV Solutions • Computer Sales & Service • Network Maintenance</p>
-    <p style="font-size: 15px; font-style: italic; margin-top: 5px;">Trusted Technical Experts in Pathapatnam & Parlakhemundi</p>
-</div>
+<!-- Modern Navigation Bar -->
+<nav class="navbar">
+    <div class="nav-brand">
+        <img src="supani logo.jpeg" alt="Supani Technologies" class="nav-logo">
+        <h2>SUPANI TECHNOLOGIES</h2>
+    </div>
+    <div class="nav-links">
+        <a href="#about">About Sujith</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
 
-<h2 class="section-title">Our Expert Services</h2>
+<!-- Trust-Building Header Section -->
+<header class="hero-section" id="about">
+    <div class="hero-image-container">
+        <!-- Replace the src below with your expert image filename once saved locally -->
+        <img src="watermarked_img_17194857525947053716.png" alt="Panigrahi Sujith - Technical Expert" class="hero-img">
+    </div>
+    <div class="hero-content">
+        <span class="tagline">Building Trust Through Local Expertise</span>
+        <h1>Meet Panigrahi Sujith</h1>
+        
+        <p class="hero-story">
+            Born and raised in Srikakulam, technology has always been my core passion. Over the years, I noticed that homes and businesses across our locality often struggle to find honest, high-end technical support without traveling to major distant cities. To solve this gap, I founded Supani Technologies right here in our community.
+        </p>
+        <p class="hero-story">
+            We are dedicated to providing cutting-edge surveillance and infrastructure engineering. Whether protecting your business with smart high-definition CCTV installations or keeping your laptops performing flawlessly, my focus remains entirely on standard precision and uncompromised local reliability.
+        </p>
+        
+        <div class="hero-quote">
+            "My goal is remarkably simple: to deliver sophisticated corporate-grade security and tech systems straight to your doorstep across Pathapatnam and Parlakhemundi with absolute transparency."
+            <br><strong style="color: var(--primary); font-style: normal; display:block; margin-top:5px;">— Panigrahi Sujith</strong>
+        </div>
+        
+        <a href="#services" class="hero-btn">Explore Our Tech Services</a>
+    </div>
+</header>
 
+<!-- Services Section -->
+<h2 class="section-title" id="services">Our Engineering & Support Services</h2>
 <div class="services">
     <div class="card">
-        <img class="service-img" src="https://images.unsplash.com/photo-1558002038-1055907df827?w=400" alt="CCTV Camera Security">
-        <h3>📹 CCTV Services</h3>
-        <p>Professional installation, high-definition camera setups, remote mobile viewing, and reliable ongoing technical maintenance for home and business security.</p>
+        <img class="service-img" src="https://images.unsplash.com/photo-1558002038-1055907df827?w=400" alt="CCTV">
+        <h3>📹 CCTV Solutions</h3>
+        <p>Premium multi-camera network setups, remote live-viewing smartphone configurations, and strategic hardware maintenance contracts.</p>
     </div>
 
     <div class="card">
-        <img class="service-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400" alt="Computer Hardware Component">
+        <img class="service-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400" alt="Computers">
         <h3>💻 Computer Sales & Service</h3>
-        <p>Premium quality laptops and custom desktops. Fast diagnosis, chip-level repairs, hardware upgrades, and optimization to make your systems run flawlessly.</p>
+        <p>Expert custom workstation assembly, fast diagnostic chip-level laptop repairs, and high-speed storage upgrades.</p>
     </div>
 
     <div class="card">
-        <img class="service-img" src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=400" alt="IT Technical Maintenance">
-        <h3>🛠 System Maintenance</h3>
-        <p>On-demand troubleshooting and Annual Maintenance Contracts (AMC) to keep your office networks, printers, and core hardware infrastructure running smoothly.</p>
+        <img class="service-img" src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=400" alt="Maintenance">
+        <h3>🛠 Infrastructure Maintenance</h3>
+        <p>Annual Maintenance Contracts (AMC) to secure business networks, printers, and continuous server uptimes smoothly.</p>
     </div>
 
     <div class="card">
-        <img class="service-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400" alt="Software Support Interface">
-        <h3>🖥 Software Solutions</h3>
-        <p>Operating system installations, virus protection setup, business accounting software configuration, and dedicated data backup and recovery solutions.</p>
+        <img class="service-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400" alt="Software">
+        <h3>🖥 Software Deployments</h3>
+        <p>Clean operating system environments, custom security firewalls, antivirus installations, and recovery management tools.</p>
     </div>
 </div>
 
-<div class="features">
-    <h2 style="color: var(--primary); margin: 0;">Why Choose Supani Technologies?</h2>
-    <div class="features-container">
-        <div class="feature-item">
-            <h4>⚡ Fast Doorstep Support</h4>
-            <p>We bring our technical expertise directly to your home or office, ensuring absolute minimal downtime.</p>
-        </div>
-        <div class="feature-item">
-            <h4>🏆 Certified Quality</h4>
-            <p>We source top-tier, authentic hardware and cameras backed by genuine manufacturer warranties.</p>
-        </div>
-        <div class="feature-item">
-            <h4>🤝 Customer First</h4>
-            <p>Transparent pricing, clear communication, and dedicated after-sales support for your peace of mind.</p>
-        </div>
-    </div>
-</div>
-
-<div class="contact">
-    <h2>24/7 Door Step Technical Service</h2>
-    <p style="color: #666; margin-bottom: 20px;">Get in touch for immediate support or a custom service quotation.</p>
+<!-- Contact Section -->
+<div class="contact" id="contact">
+    <h2>Request Fast Doorstep Service</h2>
+    <p style="color: var(--text-muted);">Have a technical issue? Reach out directly for an immediate on-site deployment.</p>
     
     <div class="contact-info">📞 <a href="tel:+919490387123">9490387123</a> / <a href="tel:+919490187123">9490187123</a></div>
     <div class="contact-info">📧 <a href="mailto:supanitech@gmail.com">supanitech@gmail.com</a></div>
     
     <a class="whatsapp" href="https://wa.me/919490387123" target="_blank">
-        💬 Chat on WhatsApp
+        💬 Connect with Sujith on WhatsApp
     </a>
 </div>
 
 <div class="footer">
-    Supani Technologies © 2026 | Powered by Excellence
+    Supani Technologies © 2026 | Built for Trust & Local Excellence
 </div>
 
 </body>
