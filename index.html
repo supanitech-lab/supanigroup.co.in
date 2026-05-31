@@ -1,509 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Supani Technologies | Led by Panigrahi Sujith</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supani Technologies - Professional Addons</title>
+    <style>
+        /* Modern Reset & Variables */
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #28a745;
+            --text-dark: #2c3e50;
+            --text-light: #6c757d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
 
-<style>
-:root {
-    --primary: #003366;
-    --secondary: #0077cc;
-    --accent: #25D366;
-    --dark: #222222;
-    --light: #f5f7fa;
-    --text-muted: #555555;
-}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    background: var(--light);
-    color: var(--dark);
-    line-height: 1.6;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
 
-/* Navigation Bar */
-.navbar {
-    background: white;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
 
-.nav-brand {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
 
-.nav-logo {
-    width: 45px;
-    height: auto;
-    border-radius: 6px;
-}
+        /* 1. Trust & Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
 
-.nav-brand h2 {
-    margin: 0;
-    font-size: 20px;
-    color: var(--primary);
-    letter-spacing: 0.5px;
-}
+        .stat-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
 
-.nav-links {
-    display: flex;
-    gap: 20px;
-}
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--dark);
-    font-weight: 500;
-    font-size: 15px;
-    transition: color 0.2s;
-}
+        .stat-card .icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
 
-.nav-links a:hover {
-    color: var(--secondary);
-}
+        .stat-card h3 {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
 
-/* Hero Section */
-.hero-section {
-    background: linear-gradient(135deg, #ffffff, #eef2f7);
-    padding: 60px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        .stat-card p {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 1rem;
+        }
 
-.hero-image-container {
-    flex: 1;
-    text-align: center;
-    max-width: 450px;
-}
+        /* 2. Professional Accordion (FAQs) */
+        .faq-section {
+            background-color: var(--bg-light);
+            border-radius: 16px;
+            padding: 40px 20px;
+        }
 
-.hero-img {
-    width: 100%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 12px 30px rgba(0,33,102,0.15);
-    border: 4px solid white;
-}
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-.hero-content {
-    flex: 1.2;
-    max-width: 600px;
-}
+        .faq-item {
+            background: var(--white);
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            overflow: hidden;
+        }
 
-.tagline {
-    color: var(--secondary);
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    font-size: 13px;
-    margin-bottom: 10px;
-    display: block;
-}
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            user-select: none;
+            transition: var(--transition);
+        }
 
-.hero-content h1 {
-    font-size: 36px;
-    color: var(--primary);
-    margin: 0 0 20px 0;
-    line-height: 1.2;
-}
+        .faq-question:hover {
+            background-color: rgba(0, 86, 179, 0.03);
+            color: var(--primary-color);
+        }
 
-.hero-story {
-    font-size: 16px;
-    color: #444;
-    margin-bottom: 20px;
-    text-align: justify;
-}
+        .faq-toggle-icon {
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
 
-.hero-quote {
-    background: white;
-    border-left: 4px solid var(--secondary);
-    padding: 15px;
-    font-style: italic;
-    margin: 25px 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-    border-radius: 0 8px 8px 0;
-}
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            padding: 0 25px;
+            color: var(--text-light);
+            line-height: 1.6;
+            background-color: #fafafa;
+        }
 
-.hero-btn {
-    display: inline-block;
-    background: var(--primary);
-    color: white;
-    padding: 12px 24px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background 0.2s;
-}
+        /* Active states for JS toggle */
+        .faq-item.active .faq-answer {
+            padding: 20px 25px;
+            border-top: 1px solid #f0f0f0;
+        }
 
-.hero-btn:hover {
-    background: var(--secondary);
-}
+        .faq-item.active .faq-toggle-icon {
+            transform: rotate(45deg);
+            color: var(--primary-color);
+        }
 
-/* Services Grid */
-.section-title {
-    text-align: center;
-    margin: 60px 0 10px;
-    color: var(--primary);
-    font-size: 30px;
-}
+        /* 3. Floating Action Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366; /* WhatsApp Green */
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            z-index: 1000;
+            transition: var(--transition);
+        }
 
-.section-subtitle {
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 16px;
-    margin-bottom: 40px;
-}
+        .floating-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
 
-.services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-    padding: 0 20px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.card {
-    background: white;
-    padding: 25px;
-    border-radius: 16px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.04);
-    text-align: center;
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.service-img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 18px;
-}
-
-.card h3 {
-    color: var(--secondary);
-    margin-bottom: 12px;
-}
-
-/* Pricing Section Setup */
-.pricing-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto 60px;
-}
-
-.price-card {
-    background: white;
-    border-radius: 20px;
-    padding: 35px 25px;
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.03);
-    border: 2px solid transparent;
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-}
-
-.price-card.featured {
-    border-color: var(--secondary);
-    box-shadow: 0 12px 30px rgba(0, 119, 204, 0.1);
-    transform: scale(1.03);
-}
-
-.price-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
-}
-
-.badge {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--secondary);
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 5px 12px;
-    border-radius: 20px;
-    text-transform: uppercase;
-}
-
-.price-card h3 {
-    color: var(--primary);
-    font-size: 24px;
-    margin: 0 0 15px 0;
-}
-
-.price-value {
-    font-size: 16px;
-    color: var(--text-muted);
-    font-weight: bold;
-    margin-bottom: 25px;
-    background: #eef2f7;
-    padding: 10px;
-    border-radius: 8px;
-}
-
-.price-features {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 30px 0;
-    text-align: left;
-}
-
-.price-features li {
-    margin-bottom: 12px;
-    color: #444;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 15px;
-}
-
-.price-btn {
-    display: block;
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    padding: 12px;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: background 0.2s;
-}
-
-.price-card.featured .price-btn {
-    background: var(--accent);
-}
-
-.price-card.featured .price-btn:hover {
-    background: #20ba56;
-}
-
-.price-btn:hover {
-    background: var(--secondary);
-}
-
-/* Contact Area */
-.contact {
-    background: white;
-    margin: 60px auto;
-    padding: 40px 20px;
-    border-radius: 16px;
-    text-align: center;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.04);
-    max-width: 600px;
-}
-
-.contact h2 {
-    color: var(--primary);
-}
-
-.contact-info {
-    font-size: 18px;
-    margin: 15px 0;
-    font-weight: bold;
-}
-
-.contact-info a {
-    color: var(--secondary);
-    text-decoration: none;
-}
-
-.whatsapp {
-    display: inline-block;
-    background: var(--accent);
-    color: white;
-    padding: 14px 28px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 15px;
-    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
-}
-
-.footer {
-    background: var(--primary);
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 14px;
-}
-
-/* Responsive adjustments for phones */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .hero-section {
-        flex-direction: column;
-        padding: 40px 20px;
-        gap: 30px;
-    }
-    .hero-content h1 {
-        font-size: 28px;
-    }
-    .price-card.featured {
-        transform: scale(1);
-    }
-}
-</style>
+        @media (max-width: 768px) {
+            .floating-btn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Modern Navigation Bar -->
-<nav class="navbar">
-    <div class="nav-brand">
-        <img src="supani logo.jpeg" alt="Supani Technologies" class="nav-logo">
-        <h2>SUPANI TECHNOLOGIES</h2>
-    </div>
-    <div class="nav-links">
-        <a href="#about">About Sujith</a>
-        <a href="#services">Services</a>
-        <a href="#pricing">Packages</a>
-        <a href="#contact">Contact</a>
-    </div>
-</nav>
-
-<!-- Main Introduction Section -->
-<header class="hero-section" id="about">
-    <div class="hero-image-container">
-        <!-- MATCHED EXACTLY WITH THE NAME IN YOUR FILE TREE -->
-        <img src="sujith-real.png.jpg" alt="Panigrahi Sujith - Technical Expert" class="hero-img">
-    </div>
-    <div class="hero-content">
-        <span class="tagline">Building Trust Through Local Expertise</span>
-        <h1>Meet Panigrahi Sujith</h1>
-        
-        <p class="hero-story">
-            Born and raised in Srikakulam, technology has always been my core passion. Over the years, I noticed that homes and businesses across our locality often struggle to find honest, high-end technical support without traveling to major distant cities. To solve this gap, I founded Supani Technologies right here in our community.
-        </p>
-        <p class="hero-story">
-            We are dedicated to providing cutting-edge surveillance and infrastructure engineering. Whether protecting your business with smart high-definition CCTV installations or keeping your laptops performing flawlessly, my focus remains entirely on standard precision and uncompromised local reliability.
-        </p>
-        
-        <div class="hero-quote">
-            "My goal is remarkably simple: to deliver sophisticated corporate-grade security and tech systems straight to your doorstep across Pathapatnam and Parlakhemundi with absolute transparency."
-            <br><strong style="color: var(--primary); font-style: normal; display:block; margin-top:5px;">— Panigrahi Sujith</strong>
+    <!-- Stats & Trust Section -->
+    <section class="container">
+        <h2 class="section-title">Our Business at a Glance</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="icon">⏱️</div>
+                <h3>100%</h3>
+                <p>On-Time Service Guaranteed</p>
+            </div>
+            <div class="stat-card">
+                <div class="icon">📍</div>
+                <h3>100 km</h3>
+                <p>Radius Served Around Pathapatnam</p>
+            </div>
+            <div class="stat-card">
+                <div class="icon">🛡️</div>
+                <h3>Fully</h3>
+                <p>Licensed & Certified Experts</p>
+            </div>
         </div>
-        
-        <a href="#services" class="hero-btn">Explore Our Tech Services</a>
-    </div>
-</header>
+    </section>
 
-<!-- Services Section -->
-<h2 class="section-title" id="services">Our Engineering & Support Services</h2>
-<p class="section-subtitle">Professional IT and security integrations customized for your exact requirements</p>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container" style="padding: 20px 0;">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Which areas do you exactly cover?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We actively serve a 100km radius centered at Pathapatnam. This coverage encompasses Parlakhemundi, Srikakulam, Tekkali, Palasa, Berhampur, and surrounding areas. Contact us directly to confirm support for your location!</p>
+                    </div>
+                </div>
 
-<div class="services">
-    <div class="card">
-        <img class="service-img" src="https://images.unsplash.com/photo-1558002038-1055907df827?w=400" alt="CCTV">
-        <h3>📹 CCTV Solutions</h3>
-        <p>Premium multi-camera network setups, remote live-viewing smartphone configurations, and strategic hardware maintenance contracts.</p>
-    </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do you provide post-installation support?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. Every installation or service we perform comes with a standard support window. We also offer affordable annual maintenance contracts to keep your equipment running smoothly year-round.</p>
+                    </div>
+                </div>
 
-    <div class="card">
-        <img class="service-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400" alt="Computers">
-        <h3>💻 Computer Sales & Service</h3>
-        <p>Expert custom workstation assembly, fast diagnostic chip-level laptop repairs, and high-speed storage upgrades.</p>
-    </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How quickly can a technician visit my site?</span>
+                        <span class="faq-toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For urgent service or installations within our primary zone (Pathapatnam & Parlakhemundi), we typically dispatch technicians within 24 to 48 hours of your request.</p>
+                    </div>
+                </div>
 
-    <div class="card">
-        <img class="service-img" src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=400" alt="Maintenance">
-        <h3>🛠 Infrastructure Maintenance</h3>
-        <p>Annual Maintenance Contracts (AMC) to secure business networks, printers, and continuous server uptimes smoothly.</p>
-    </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="card">
-        <img class="service-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400" alt="Software">
-        <h3>🖥 Software Deployments</h3>
-        <p>Clean operating system environments, custom security firewalls, antivirus installations, and recovery management tools.</p>
-    </div>
-</div>
-
-<!-- Pricing Section -->
-<h2 class="section-title" id="pricing">Surveillance & Service Packages</h2>
-<p class="section-subtitle">Select a verified configuration package or request a tailored corporate quote</p>
-
-<div class="pricing-container">
-    <div class="price-card">
-        <h3>🏠 Home Basic</h3>
-        <div class="price-value">Perfect for Homes & Small Shops</div>
-        <ul class="price-features">
-            <li>✅ 2 High-Definition Bullet/Dome Cameras</li>
-            <li>✅ 4-Channel Digital Video Recorder (DVR)</li>
-            <li>✅ 1TB Dedicated Surveillance Hard Drive</li>
-            <li>✅ Full Smartphone Live-View Configuration</li>
-            <li>✅ Complete Wiring & Neat Installation</li>
-        </ul>
-        <a href="https://wa.me/919490387123?text=Hi%20Sujith,%20I%20am%20interested%20in%20the%20Home%20Basic%20CCTV%20Package." target="_blank" class="price-btn">Book Installation</a>
-    </div>
-
-    <div class="price-card featured">
-        <div class="badge">Most Popular</div>
-        <h3>🏢 Business Pro</h3>
-        <div class="price-value">Complete Office & Commercial Setup</div>
-        <ul class="price-features">
-            <li>✅ 4 True-HD Night Vision Cameras</li>
-            <li>✅ 4-Channel High-Performance DVR</li>
-            <li>✅ 2TB Enterprise Surveillance Storage</li>
-            <li>✅ Advanced Smartphone & Laptop Live Sync</li>
-            <li>✅ Free Structural Site Inspection</li>
-            <li>✅ 1-Year Priority Technical Support</li>
-        </ul>
-        <a href="https://wa.me/919490387123?text=Hi%20Sujith,%20I%20am%20interested%20in%20the%20Business%20Pro%20CCTV%20Package." target="_blank" class="price-btn">Book Installation</a>
-    </div>
-
-    <div class="price-card">
-        <h3>🚀 Enterprise Max</h3>
-        <div class="price-value">Advanced Security Engineering</div>
-        <ul class="price-features">
-            <li>✅ 8 High-End IP Network Cameras</li>
-            <li>✅ 8-Channel Network Video Recorder (NVR)</li>
-            <li>✅ 4TB Massive Server-Grade Storage</li>
-            <li>✅ PoE Network Switch System Integration</li>
-            <li>✅ Continuous Power Backup Setup</li>
-            <li>✅ Comprehensive AMC Maintenance Plan</li>
-        </ul>
-        <a href="https://wa.me/919490387123?text=Hi%20Sujith,%20I%20am%20interested%20in%20the%20Enterprise%20Max%20CCTV%20Package." target="_blank" class="price-btn">Contact for Quote</a>
-    </div>
-</div>
-
-<!-- Contact Section -->
-<div class="contact" id="contact">
-    <h2>Request Fast Doorstep Service</h2>
-    <p style="color: var(--text-muted);">Have a technical issue? Reach out directly for an immediate on-site deployment.</p>
-    
-    <div class="contact-info">📞 <a href="tel:+919490387123">9490387123</a> / <a href="tel:+919490187123">9490187123</a></div>
-    <div class="contact-info">📧 <a href="mailto:supanitech@gmail.com">supanitech@gmail.com</a></div>
-    
-    <a class="whatsapp" href="https://wa.me/919490387123" target="_blank">
-        💬 Connect with Sujith on WhatsApp
+    <!-- Floating Contact Button -->
+    <a href="https://wa.me/YOUR_PHONE_NUMBER" class="floating-btn" target="_blank">
+        <span>💬</span> Quick Support
     </a>
-</div>
 
-<div class="footer">
-    Supani Technologies © 2026 | Built for Trust & Local Excellence
-</div>
+    <!-- Simple Script to Handle the Accordion Open/Close -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const answer = faqItem.querySelector('.faq-answer');
+                
+                // Toggle active state
+                faqItem.classList.toggle('active');
+                
+                if (faqItem.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                } else {
+                    answer.style.maxHeight = 0;
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
