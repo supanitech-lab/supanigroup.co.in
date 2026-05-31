@@ -16,6 +16,10 @@
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+html {
+    scroll-behavior: smooth; /* Enhances UX during link jumps */
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -506,14 +510,14 @@ body {
     transition: var(--transition);
 }
 
+/* FIX: Handled spacing entirely inside padding toggles to protect collapsing animations */
 .faq-answer {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-    padding: 0 25px;
+    padding: 0 25px; 
     color: #555;
     background-color: #fafbfd;
-    border-top: 0 solid #edf2f7;
 }
 
 .faq-item.active {
@@ -521,8 +525,9 @@ body {
 }
 
 .faq-item.active .faq-answer {
-    padding: 20px 25px;
-    border-top-width: 1px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    border-top: 1px solid #edf2f7;
 }
 
 .faq-item.active .faq-icon {
@@ -644,7 +649,9 @@ body {
     .mobile-call-float {
         display: flex;
     }
-    .whatsapp-fixed-btn span {
+    
+    /* FIX: Prevents elements from vanishing when the text hidden property activates */
+    .whatsapp-fixed-btn .desktop-text {
         display: none;
     }
     .whatsapp-fixed-btn {
@@ -682,7 +689,6 @@ body {
 <!-- Trust-Building Header Section -->
 <header class="hero-section" id="about">
     <div class="hero-image-container">
-        <!-- FIXED PATH: Pointing precisely to your filename inside GitHub repository side menu -->
         <img src="sujith-real.png.jpg" alt="Panigrahi Sujith - Technical Expert" class="hero-img">
     </div>
     <div class="hero-content">
@@ -823,7 +829,7 @@ body {
 <h2 class="section-title">Client Success Stories</h2>
 <p class="section-subtitle">Read firsthand tracking statements from local clients we serve</p>
 
-<section class="container" style="padding-top: 0;">
+<section style="padding-top: 0; margin-bottom: 60px;">
     <div class="reviews-container">
         <!-- Slide 1 -->
         <div class="review-slide active">
@@ -857,7 +863,7 @@ body {
             <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-            <p>Our core engineering team operates across a 100km radius around Pathapatnam. This means we offer lightning-fast doorstep installation and repair support inside Parlakhemundi, Srikakulam, Tekkali, Palasa, and nearby villages.</p>
+            <p style="margin: 0; padding: 15px 0;">Our core engineering team operates across a 100km radius around Pathapatnam. This means we offer lightning-fast doorstep installation and repair support inside Parlakhemundi, Srikakulam, Tekkali, Palasa, and nearby villages.</p>
         </div>
     </div>
 
@@ -867,7 +873,7 @@ body {
             <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-            <p>Most standard setups like our Home Basic (2 cameras) or Business Pro (4 cameras) are fully configured, neatly wired, and synced to your mobile phone within a single day.</p>
+            <p style="margin: 0; padding: 15px 0;">Most standard setups like our Home Basic (2 cameras) or Business Pro (4 cameras) are fully configured, neatly wired, and synced to your mobile phone within a single day.</p>
         </div>
     </div>
 
@@ -877,7 +883,7 @@ body {
             <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-            <p>Yes, absolutely. We strictly deal in genuine, branded hardware (like Hikvision, CP Plus, etc.). Every component comes with its standard manufacturer warranty alongside our reliable local backend service.</p>
+            <p style="margin: 0; padding: 15px 0;">Yes, absolutely. We strictly deal in genuine, branded hardware (like Hikvision, CP Plus, etc.). Every component comes with its standard manufacturer warranty alongside our reliable local backend service.</p>
         </div>
     </div>
 </div>
@@ -899,10 +905,10 @@ body {
     Supani Technologies © 2026 | Built for Trust & Local Excellence
 </div>
 
-<!-- Global Widgets: Right Sticky WhatsApp / Left Mobile Phone Dial Button -->
+<!-- Global Widgets -->
 <a class="whatsapp-fixed-btn" href="https://wa.me/919490387123?text=Hi%20Sujith,%20I'm%20visiting%20your%20website%20and%20need%20assistance." target="_blank">
-    <span>💬 Live Chat</span>
-    <span style="display:none; font-size: 22px;" id="wa-mobile-icon">💬</span>
+    <span class="desktop-text">💬 Live Chat</span>
+    <span id="wa-mobile-icon" style="display:none; font-size: 22px;">💬</span>
 </a>
 
 <a class="mobile-call-float" href="tel:+919490387123">📞</a>
@@ -919,7 +925,7 @@ body {
             faqItem.classList.toggle('active');
             
             if (faqItem.classList.contains('active')) {
-                answer.style.maxHeight = answer.scrollHeight + "px";
+                answer.style.maxHeight = (answer.scrollHeight + 40) + "px";
             } else {
                 answer.style.maxHeight = 0;
             }
@@ -932,6 +938,7 @@ body {
     const dots = document.querySelectorAll('.dot');
 
     function setSlide(index) {
+        if(index >= slides.length || index < 0) return;
         slides[currentSlide].classList.remove('active');
         dots[currentSlide].classList.remove('active');
         currentSlide = index;
@@ -945,9 +952,10 @@ body {
         setSlide(next);
     }, 6000);
 
-    // Minor responsive adjustments handler for tiny viewport rules
+    // Responsive Mobile Layout adjustments
     if(window.innerWidth <= 768) {
-        document.getElementById('wa-mobile-icon').style.display = 'block';
+        const mobileIcon = document.getElementById('wa-mobile-icon');
+        if(mobileIcon) mobileIcon.style.display = 'block';
     }
 </script>
 
