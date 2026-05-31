@@ -155,9 +155,16 @@ body {
 /* Services Grid */
 .section-title {
     text-align: center;
-    margin: 60px 0 20px;
+    margin: 60px 0 10px;
     color: var(--primary);
     font-size: 30px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 16px;
+    margin-bottom: 40px;
 }
 
 .services {
@@ -193,6 +200,106 @@ body {
 .card h3 {
     color: var(--secondary);
     margin-bottom: 12px;
+}
+
+/* Pricing Section Setup */
+.pricing-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+}
+
+.price-card {
+    background: white;
+    border-radius: 20px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.03);
+    border: 2px solid transparent;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.price-card.featured {
+    border-color: var(--secondary);
+    box-shadow: 0 12px 30px rgba(0, 119, 204, 0.1);
+    transform: scale(1.03);
+}
+
+.price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--secondary);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.price-card h3 {
+    color: var(--primary);
+    font-size: 24px;
+    margin: 0 0 15px 0;
+}
+
+.price-value {
+    font-size: 16px;
+    color: var(--text-muted);
+    font-weight: bold;
+    margin-bottom: 25px;
+    background: #eef2f7;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.price-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+    text-align: left;
+}
+
+.price-features li {
+    margin-bottom: 12px;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.price-btn {
+    display: block;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.price-card.featured .price-btn {
+    background: var(--accent);
+}
+
+.price-card.featured .price-btn:hover {
+    background: #20ba56;
+}
+
+.price-btn:hover {
+    background: var(--secondary);
 }
 
 /* Contact Area */
@@ -255,6 +362,9 @@ body {
     .hero-content h1 {
         font-size: 28px;
     }
+    .price-card.featured {
+        transform: scale(1);
+    }
 }
 </style>
 </head>
@@ -269,6 +379,7 @@ body {
     <div class="nav-links">
         <a href="#about">About Sujith</a>
         <a href="#services">Services</a>
+        <a href="#pricing">Packages</a>
         <a href="#contact">Contact</a>
     </div>
 </nav>
@@ -276,7 +387,6 @@ body {
 <!-- Trust-Building Header Section -->
 <header class="hero-section" id="about">
     <div class="hero-image-container">
-        <!-- Safely rendering inside the HTML structure -->
         <img src="sujith-expert.png" alt="Panigrahi Sujith - Technical Expert" class="hero-img">
     </div>
     <div class="hero-content">
@@ -301,6 +411,8 @@ body {
 
 <!-- Services Section -->
 <h2 class="section-title" id="services">Our Engineering & Support Services</h2>
+<p class="section-subtitle">Professional IT and security integrations customized for your exact requirements</p>
+
 <div class="services">
     <div class="card">
         <img class="service-img" src="https://images.unsplash.com/photo-1558002038-1055907df827?w=400" alt="CCTV">
@@ -324,6 +436,57 @@ body {
         <img class="service-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400" alt="Software">
         <h3>🖥 Software Deployments</h3>
         <p>Clean operating system environments, custom security firewalls, antivirus installations, and recovery management tools.</p>
+    </div>
+</div>
+
+<!-- Pricing Section -->
+<h2 class="section-title" id="pricing">Surveillance & Service Packages</h2>
+<p class="section-subtitle">Select a verified configuration package or request a tailored corporate quote</p>
+
+<div class="pricing-container">
+    <!-- Tier 1 -->
+    <div class="price-card">
+        <h3>🏠 Home Basic</h3>
+        <div class="price-value">Perfect for Homes & Small Shops</div>
+        <ul class="price-features">
+            <li>✅ 2 High-Definition Bullet/Dome Cameras</li>
+            <li>✅ 4-Channel Digital Video Recorder (DVR)</li>
+            <li>✅ 1TB Dedicated Surveillance Hard Drive</li>
+            <li>✅ Full Smartphone Live-View Configuration</li>
+            <li>✅ Complete Wiring & Neat Installation</li>
+        </ul>
+        <a href="https://wa.me/919490387123?text=Hi%20Sujith,%20I%20am%20interested%20in%20the%20Home%20Basic%20CCTV%20Package." target="_blank" class="price-btn">Book Installation</a>
+    </div>
+
+    <!-- Tier 2 (Featured) -->
+    <div class="price-card featured">
+        <div class="badge">Most Popular</div>
+        <h3>🏢 Business Pro</h3>
+        <div class="price-value">Complete Office & Commercial Setup</div>
+        <ul class="price-features">
+            <li>✅ 4 True-HD Night Vision Cameras</li>
+            <li>✅ 4-Channel High-Performance DVR</li>
+            <li>✅ 2TB Enterprise Surveillance Storage</li>
+            <li>✅ Advanced Smartphone & Laptop Live Sync</li>
+            <li>✅ Free Structural Site Inspection</li>
+            <li>✅ 1-Year Priority Technical Support</li>
+        </ul>
+        <a href="https://wa.me/919490387123?text=Hi%20Sujith,%20I%20am%20interested%20in%20the%20Business%20Pro%20CCTV%20Package." target="_blank" class="price-btn">Book Installation</a>
+    </div>
+
+    <!-- Tier 3 -->
+    <div class="price-card">
+        <h3>🚀 Enterprise Max</h3>
+        <div class="price-value">Advanced Security Engineering</div>
+        <ul class="price-features">
+            <li>✅ 8 High-End IP Network Cameras</li>
+            <li>✅ 8-Channel Network Video Recorder (NVR)</li>
+            <li>✅ 4TB Massive Server-Grade Storage</li>
+            <li>✅ PoE Network Switch System Integration</li>
+            <li>✅ Continuous Power Backup Setup</li>
+            <li>✅ Comprehensive AMC Maintenance Plan</li>
+        </ul>
+        <a href="https://wa.me/919490387123?text=Hi%20Sujith,%20I%20am%20interested%20in%20the%20Enterprise%20Max%20CCTV%20Package." target="_blank" class="price-btn">Contact for Quote</a>
     </div>
 </div>
 
