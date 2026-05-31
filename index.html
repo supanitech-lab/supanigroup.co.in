@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Supani Technologies - Professional Addons</title>
+    <title>Supani Technologies | Professional CCTV Sales & Service</title>
     <style>
-        /* Modern Reset & Variables */
+        /* Modern Design System & Colors */
         :root {
-            --primary-color: #0056b3;
-            --secondary-color: #28a745;
-            --text-dark: #2c3e50;
-            --text-light: #6c757d;
-            --bg-light: #f8f9fa;
+            --primary-color: #0f4c81;   /* Premium Tech Blue */
+            --secondary-color: #28a745; /* Trust Green */
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
             --white: #ffffff;
             --transition: all 0.3s ease;
         }
@@ -22,6 +22,7 @@
             padding: 0;
             color: var(--text-dark);
             background-color: var(--white);
+            line-height: 1.6;
         }
 
         .container {
@@ -30,82 +31,177 @@
             padding: 60px 20px;
         }
 
+        /* Utility Components */
         .section-title {
             text-align: center;
             font-size: 2.2rem;
             margin-bottom: 40px;
-            position: relative;
+            font-weight: 700;
         }
 
         .section-title::after {
             content: '';
             display: block;
-            width: 60px;
+            width: 50px;
             height: 4px;
             background: var(--primary-color);
             margin: 10px auto 0;
             border-radius: 2px;
         }
 
-        /* 1. Trust & Stats Grid */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* 1. Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        /* 2. Hero Section (With Background Image Support) */
+        .hero {
+            background: linear-gradient(rgba(15, 76, 129, 0.85), rgba(15, 76, 129, 0.95)), 
+                        url('hero-bg.jpg') no-repeat center center/cover;
+            /* NOTE: Replace 'hero-bg.jpg' with your main CCTV background banner image file */
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-0 0 20px 0;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        /* 3. Services Section (With Image Placeholders) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border: 1px solid #f1f5f9;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #cbd5e1; /* Fallback gray if image missing */
+        }
+
+        .service-info {
+            padding: 25px;
+        }
+
+        .service-info h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+        }
+
+        .service-info p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* 4. Stats & Trust Metrics Section */
+        .stats-section {
+            background-color: var(--bg-light);
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
-            margin-bottom: 60px;
         }
 
         .stat-card {
             background: var(--white);
-            padding: 30px;
+            padding: 35px 25px;
             border-radius: 12px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0,0,0,0.03);
-            transition: var(--transition);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
         }
 
         .stat-card .icon {
             font-size: 2.5rem;
-            color: var(--primary-color);
             margin-bottom: 15px;
         }
 
         .stat-card h3 {
             font-size: 2.5rem;
-            margin: 0 0 10px 0;
-            color: var(--text-dark);
-            font-weight: 700;
+            margin: 0 0 5px 0;
+            color: var(--primary-color);
         }
 
         .stat-card p {
             margin: 0;
             color: var(--text-light);
-            font-size: 1rem;
+            font-weight: 500;
         }
 
-        /* 2. Professional Accordion (FAQs) */
-        .faq-section {
-            background-color: var(--bg-light);
-            border-radius: 16px;
-            padding: 40px 20px;
-        }
-
+        /* 5. Professional Accordion (FAQs) */
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
         }
 
         .faq-item {
-            background: var(--white);
+            background: var(--bg-light);
             margin-bottom: 15px;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             overflow: hidden;
         }
 
@@ -115,19 +211,12 @@
             align-items: center;
             padding: 20px 25px;
             font-weight: 600;
-            font-size: 1.1rem;
             cursor: pointer;
             user-select: none;
-            transition: var(--transition);
-        }
-
-        .faq-question:hover {
-            background-color: rgba(0, 86, 179, 0.03);
-            color: var(--primary-color);
         }
 
         .faq-toggle-icon {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             transition: var(--transition);
         }
 
@@ -137,29 +226,34 @@
             transition: max-height 0.3s ease-out, padding 0.3s ease-out;
             padding: 0 25px;
             color: var(--text-light);
-            line-height: 1.6;
-            background-color: #fafafa;
+            background-color: #f1f5f9;
         }
 
-        /* Active states for JS toggle */
         .faq-item.active .faq-answer {
             padding: 20px 25px;
-            border-top: 1px solid #f0f0f0;
         }
 
         .faq-item.active .faq-toggle-icon {
             transform: rotate(45deg);
-            color: var(--primary-color);
         }
 
-        /* 3. Floating Action Button */
+        /* 6. Footer Layout */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* 7. Floating WhatsApp Widget */
         .floating-btn {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: #25d366; /* WhatsApp Green */
+            background-color: #25d366;
             color: white;
-            padding: 15px 25px;
+            padding: 14px 22px;
             border-radius: 50px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             text-decoration: none;
@@ -173,96 +267,139 @@
 
         .floating-btn:hover {
             transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
         @media (max-width: 768px) {
-            .floating-btn {
-                bottom: 20px;
-                right: 20px;
-                padding: 12px 20px;
-                font-size: 0.9rem;
-            }
+            .hero h1 { font-size: 2.2rem; }
+            .floating-btn { bottom: 20px; right: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Stats & Trust Section -->
+    <!-- Header Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Supani Technologies</div>
+            <a href="https://wa.me/91YOURNUMBERHERE" class="btn" style="padding: 8px 18px; font-size: 0.9rem;">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Main Banner / Hero Section -->
+    <section class="hero">
+        <h1>Smart Security Solutions For Your Peace of Mind</h1>
+        <p>Premium CCTV Camera Sales, Expert Installations, and Lifetime Support across Pathapatnam and Parlakhemundi lines.</p>
+        <a href="https://wa.me/91YOURNUMBERHERE" class="btn" style="background-color: var(--secondary-color);">Get a Free Quote</a>
+    </section>
+
+    <!-- Core Business Services Section -->
     <section class="container">
-        <h2 class="section-title">Our Business at a Glance</h2>
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="icon">⏱️</div>
-                <h3>100%</h3>
-                <p>On-Time Service Guaranteed</p>
+        <h2 class="section-title">Our Specialized Services</h2>
+        <div class="services-grid">
+            
+            <!-- Service Card 1 -->
+            <div class="service-card">
+                <!-- ACTION Required: Replace 'cctv-install.jpg' with your photo name -->
+                <img src="cctv-install.jpg" alt="CCTV Installation" class="service-img">
+                <div class="service-info">
+                    <h3>HD CCTV Installation</h3>
+                    <p>Professional setup of high-definition dome, bullet, and IP cameras for residential homes and commercial complexes.</p>
+                </div>
             </div>
-            <div class="stat-card">
-                <div class="icon">📍</div>
-                <h3>100 km</h3>
-                <p>Radius Served Around Pathapatnam</p>
+
+            <!-- Service Card 2 -->
+            <div class="service-card">
+                <!-- ACTION Required: Replace 'cctv-repair.jpg' with your photo name -->
+                <img src="cctv-repair.jpg" alt="Maintenance & Service" class="service-img">
+                <div class="service-info">
+                    <h3>Repair & Maintenance</h3>
+                    <p>Quick troubleshooting of video loss, power supply faults, DVR/NVR hard drive configurations, and wiring fixes.</p>
+                </div>
             </div>
-            <div class="stat-card">
-                <div class="icon">🛡️</div>
-                <h3>Fully</h3>
-                <p>Licensed & Certified Experts</p>
+
+            <!-- Service Card 3 -->
+            <div class="service-card">
+                <!-- ACTION Required: Replace 'remote-view.jpg' with your photo name -->
+                <img src="remote-view.jpg" alt="Remote Mobile Viewing" class="service-img">
+                <div class="service-info">
+                    <h3>Mobile Remote Access</h3>
+                    <p>Configure your surveillance setup to live stream directly to your smartphone or tablet so you can monitor from anywhere globally.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title">Why Choose Supani Technologies</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="icon">⏱️</div>
+                    <h3>100%</h3>
+                    <p>On-Time Service</p>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">📍</div>
+                    <h3>100 KM</h3>
+                    <p>Radius Around Pathapatnam</p>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Genuine</h3>
+                    <p>Branded Products & Warranty</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container" style="padding: 20px 0;">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <div class="faq-container">
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Which areas do you exactly cover?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We actively serve a 100km radius centered at Pathapatnam. This coverage encompasses Parlakhemundi, Srikakulam, Tekkali, Palasa, Berhampur, and surrounding areas. Contact us directly to confirm support for your location!</p>
-                    </div>
+    <!-- FAQ Accordion Section -->
+    <section class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Which locations do you support?</span>
+                    <span class="faq-toggle-icon">+</span>
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Do you provide post-installation support?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutely. Every installation or service we perform comes with a standard support window. We also offer affordable annual maintenance contracts to keep your equipment running smoothly year-round.</p>
-                    </div>
+                <div class="faq-answer">
+                    <p>We provide full setup and on-site support within a 100km radius of Pathapatnam, including direct service coverage across Parlakhemundi, Tekkali, Palasa, and Srikakulam districts.</p>
                 </div>
-
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How quickly can a technician visit my site?</span>
-                        <span class="faq-toggle-icon">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <p>For urgent service or installations within our primary zone (Pathapatnam & Parlakhemundi), we typically dispatch technicians within 24 to 48 hours of your request.</p>
-                    </div>
-                </div>
-
             </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you provide warranty on installations?</span>
+                    <span class="faq-toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! All cameras, DVRS, and accessories carry their official manufacturer warranties, and our custom structural installation work comes with explicit service satisfaction support.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Floating Contact Button -->
-    <a href="https://wa.me/YOUR_PHONE_NUMBER" class="floating-btn" target="_blank">
-        <span>💬</span> Quick Support
+    <!-- Footer Content -->
+    <footer>
+        <p>&copy; 2026 Supani Technologies. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Floating WhatsApp Integration Button -->
+    <!-- ACTION Required: Change '91YOURNUMBERHERE' to your actual WhatsApp phone number -->
+    <a href="https://wa.me/91YOURNUMBERHERE?text=Hi%20Supani%20Technologies,%20I'm%20interested%20in%20a%20CCTV%20quote." class="floating-btn" target="_blank">
+        <span>💬</span> WhatsApp Us
     </a>
 
-    <!-- Simple Script to Handle the Accordion Open/Close -->
+    <!-- Interactive Logic Script for FAQs Accordion -->
     <script>
         document.querySelectorAll('.faq-question').forEach(button => {
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
                 const answer = faqItem.querySelector('.faq-answer');
                 
-                // Toggle active state
                 faqItem.classList.toggle('active');
                 
                 if (faqItem.classList.contains('active')) {
