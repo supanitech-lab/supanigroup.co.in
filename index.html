@@ -24,10 +24,10 @@ body {
     line-height: 1.6;
 }
 
-/* --- FULL-WIDTH LANDSCAPE NAVBAR --- */
+/* --- NAVBAR --- */
 .navbar {
     background: white;
-    padding: 15px 5%; /* Flexible padding that stretches across landscape screens */
+    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -43,7 +43,7 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    flex-shrink: 0; /* Prevents firm name from squishing */
+    flex-shrink: 0;
 }
 
 .nav-logo {
@@ -58,10 +58,9 @@ body {
     color: var(--primary);
     letter-spacing: 0.5px;
     font-weight: 800;
-    white-space: nowrap; /* Ensures company name stays on one line */
+    white-space: nowrap;
 }
 
-/* Mobile Toggle Hamburger Button */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -100,7 +99,7 @@ body {
     color: var(--secondary);
 }
 
-/* Trust Header / Hero Section */
+/* --- HERO SECTION --- */
 .hero-section {
     background: linear-gradient(135deg, #ffffff, #eef2f7);
     padding: 60px 40px;
@@ -181,7 +180,91 @@ body {
     background: var(--secondary);
 }
 
-/* Partner Hardware Brands Row */
+/* --- NEW INTERACTIVE LEAD CALCULATOR --- */
+.calculator-section {
+    background: linear-gradient(135deg, #002244, #003366);
+    color: white;
+    padding: 60px 20px;
+    border-radius: 20px;
+    max-width: 900px;
+    margin: 40px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.calc-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .calc-container { grid-template-columns: 1fr; gap: 20px; }
+}
+
+.calc-group {
+    margin-bottom: 20px;
+}
+
+.calc-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #cbd5e1;
+}
+
+.calc-select, .calc-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.price-display-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px dashed rgba(255,255,255,0.2);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.estimated-value {
+    font-size: 36px;
+    font-weight: 800;
+    color: var(--accent);
+    margin: 10px 0;
+}
+
+.calc-whatsapp-btn {
+    background: var(--accent);
+    color: white;
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.calc-whatsapp-btn:hover {
+    background: #20ba56;
+    transform: translateY(-2px);
+}
+
+/* --- PARTNER BRANDS --- */
 .brand-marquee {
     background: white;
     padding: 30px 20px;
@@ -213,13 +296,12 @@ body {
     font-size: 22px;
     font-weight: 800;
     color: #94a3b8;
-    letter-spacing: -0.5px;
     filter: grayscale(100%);
     opacity: 0.6;
     user-select: none;
 }
 
-/* Services Grid */
+/* --- SERVICES GRID --- */
 .section-title {
     text-align: center;
     margin: 60px 0 10px;
@@ -271,7 +353,7 @@ body {
     margin-bottom: 12px;
 }
 
-/* Field Performance Stats Section */
+/* --- STATS SECTION --- */
 .stats-section {
     background: white;
     padding: 60px 20px;
@@ -297,17 +379,6 @@ body {
     transition: var(--transition);
 }
 
-.stat-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 51, 102, 0.05);
-}
-
-.stat-icon {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-    display: inline-block;
-}
-
 .stat-card h3 {
     font-size: 2.5rem;
     margin: 0 0 5px 0;
@@ -321,7 +392,7 @@ body {
     font-weight: 600;
 }
 
-/* Pricing Section Setup */
+/* --- PRICING SECTION --- */
 .pricing-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -417,17 +488,7 @@ body {
     background: #20ba56;
 }
 
-.price-btn:hover {
-    background: var(--secondary);
-}
-
-/* Premium Client Reviews / Slider Component */
-.reviews-section {
-    background: white;
-    padding: 60px 20px;
-    text-align: center;
-}
-
+/* --- REVIEWS --- */
 .reviews-container {
     max-width: 800px;
     margin: 0 auto;
@@ -494,7 +555,7 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Frequently Asked Questions Accordion */
+/* --- FAQ --- */
 .faq-wrapper {
     max-width: 800px;
     margin: 0 auto 60px;
@@ -523,10 +584,6 @@ body {
     color: var(--primary);
 }
 
-.faq-question:hover {
-    color: var(--secondary);
-}
-
 .faq-icon {
     font-size: 1.3rem;
     font-weight: bold;
@@ -544,10 +601,6 @@ body {
     border-top: 0 solid #edf2f7;
 }
 
-.faq-item.active {
-    border-color: #cbd5e1;
-}
-
 .faq-item.active .faq-answer {
     padding: 20px 25px;
     border-top-width: 1px;
@@ -555,10 +608,9 @@ body {
 
 .faq-item.active .faq-icon {
     transform: rotate(45deg);
-    color: var(--primary);
 }
 
-/* Contact Area */
+/* --- CONTACT --- */
 .contact {
     background: white;
     margin: 60px auto;
@@ -607,7 +659,119 @@ body {
     font-size: 14px;
 }
 
-/* Sticky Action Buttons Layout */
+/* --- AUTOMATED FLOATING WHATSAPP CHET WIDGET --- */
+.wa-chat-widget {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9999;
+    font-family: inherit;
+}
+
+.wa-button {
+    background: var(--accent);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.wa-button:hover {
+    transform: scale(1.08);
+}
+
+.wa-button svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+}
+
+.wa-popup {
+    display: none;
+    position: absolute;
+    bottom: 75px;
+    right: 0;
+    width: 320px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    overflow: hidden;
+    animation: fadeIn 0.4s ease;
+}
+
+.wa-popup.show {
+    display: block;
+}
+
+.wa-popup-header {
+    background: #075e54;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wa-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: #075e54;
+}
+
+.wa-status-info h4 { margin: 0; font-size: 15px; }
+.wa-status-info p { margin: 0; font-size: 12px; opacity: 0.8; }
+
+.wa-popup-body {
+    background: #e5ddd5;
+    padding: 20px;
+    max-height: 200px;
+}
+
+.wa-msg-bubble {
+    background: white;
+    padding: 12px;
+    border-radius: 0 8px 8px 8px;
+    font-size: 14px;
+    color: #222;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+}
+
+.wa-msg-time {
+    font-size: 10px;
+    color: #777;
+    text-align: right;
+}
+
+.wa-popup-footer {
+    padding: 10px 15px;
+    background: white;
+}
+
+.wa-direct-link {
+    display: block;
+    background: var(--accent);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
 .mobile-call-float {
     display: none;
     position: fixed;
@@ -623,50 +787,15 @@ body {
     align-items: center;
     text-decoration: none;
     font-size: 22px;
-    z-index: 9999;
-    transition: var(--transition);
+    z-index: 9998;
 }
 
-.whatsapp-fixed-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background-color: var(--accent);
-    color: white;
-    padding: 14px 22px;
-    border-radius: 50px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: bold;
-    z-index: 9999;
-    transition: var(--transition);
-}
-
-.whatsapp-fixed-btn:hover, .mobile-call-float:hover {
-    transform: scale(1.05) translateY(-2px);
-}
-
-/* ======================================================== */
-/* --- RESPONSIVE BREAKPOINTS ---                           */
-/* ======================================================== */
-
+/* --- RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 768px) {
-    .navbar {
-        padding: 15px 20px;
-    }
-
-    .nav-brand h2 {
-        font-size: 18px; /* Slightly scaled down on mobile viewports to prevent wrapping */
-    }
-
-    .menu-toggle {
-        display: flex; /* Displays mobile hamburger icon button */
-    }
-
-    /* Mobile Navigation Dropdown Overlay Structure */
+    .navbar { padding: 15px 20px; }
+    .nav-brand h2 { font-size: 18px; }
+    .menu-toggle { display: flex; }
+    
     .nav-links {
         display: none; 
         flex-direction: column;
@@ -681,10 +810,7 @@ body {
         box-sizing: border-box;
     }
 
-    .nav-links.mobile-open {
-        display: flex;
-    }
-
+    .nav-links.mobile-open { display: flex; }
     .nav-links a {
         display: block;
         font-size: 16px;
@@ -693,86 +819,30 @@ body {
         width: 100%;
         box-sizing: border-box;
     }
-    
-    .nav-links a:last-child {
-        border-bottom: none;
-    }
-
-    .hero-section {
-        flex-direction: column;
-        padding: 40px 20px;
-        gap: 30px;
-    }
-
-    .hero-image-container {
-        max-width: 280px;
-    }
-
-    .hero-content h1 {
-        font-size: 28px;
-        text-align: center;
-    }
-    
-    .tagline {
-        text-align: center;
-    }
-
-    .hero-story {
-        text-align: left;
-    }
-
-    .price-card.featured {
-        transform: scale(1);
-    }
-    
-    .section-title {
-        font-size: 24px;
-        margin: 40px 0 10px;
-    }
-
-    .brand-grid {
-        gap: 25px;
-    }
-
-    .brand-item {
-        font-size: 18px;
-    }
-
-    .mobile-call-float {
-        display: flex;
-    }
-
-    .whatsapp-fixed-btn span {
-        display: none;
-    }
-
-    .whatsapp-fixed-btn {
-        width: 55px;
-        height: 55px;
-        padding: 0;
-        justify-content: center;
-        border-radius: 50%;
-        bottom: 20px;
-        right: 20px;
-    }
-
-    .mobile-call-float {
-        bottom: 20px;
-        left: 20px;
-    }
+    .nav-links a:last-child { border-bottom: none; }
+    .hero-section { flex-direction: column; padding: 40px 20px; gap: 30px; }
+    .hero-image-container { max-width: 280px; }
+    .hero-content h1 { font-size: 28px; text-align: center; }
+    .tagline { text-align: center; }
+    .hero-story { text-align: left; }
+    .price-card.featured { transform: scale(1); }
+    .section-title { font-size: 24px; margin: 40px 0 10px; }
+    .brand-grid { gap: 25px; }
+    .brand-item { font-size: 18px; }
+    .mobile-call-float { display: flex; bottom: 20px; left: 20px; }
+    .wa-chat-widget { bottom: 20px; right: 20px; }
 }
 </style>
 </head>
 <body>
 
-<!-- Modern Responsive Landscape Header -->
+<!-- Navigation Bar -->
 <nav class="navbar">
     <div class="nav-brand">
         <img src="supani logo.jpeg" alt="Supani Technologies" class="nav-logo">
         <h2>SUPANI TECHNOLOGIES</h2>
     </div>
     
-    <!-- Mobile Hamburger Toggle Menu Trigger -->
     <button class="menu-toggle" aria-label="Toggle Navigation Menu" onclick="toggleMobileMenu()">
         <span></span>
         <span></span>
@@ -782,6 +852,7 @@ body {
     <div class="nav-links" id="navLinks">
         <a href="#about" onclick="closeMobileMenu()">About Sujith</a>
         <a href="#services" onclick="closeMobileMenu()">Services</a>
+        <a href="#quote-calc" onclick="closeMobileMenu()">Instant Quote</a>
         <a href="#pricing" onclick="closeMobileMenu()">Packages</a>
         <a href="#contact" onclick="closeMobileMenu()">Contact</a>
     </div>
@@ -795,20 +866,17 @@ body {
     <div class="hero-content">
         <span class="tagline">Building Trust Through Local Expertise</span>
         <h1>Meet Panigrahi Sujith</h1>
-        
         <p class="hero-story">
             Born and raised in Srikakulam, technology has always been my core passion. Over the years, I noticed that homes and businesses across our locality often struggle to find honest, high-end technical support without traveling to major distant cities. To solve this gap, I founded Supani Technologies right here in our community.
         </p>
         <p class="hero-story">
             We are dedicated to providing cutting-edge surveillance and infrastructure engineering. Whether protecting your business with smart high-definition CCTV installations or keeping your laptops performing flawlessly, my focus remains entirely on standard precision and uncompromised local reliability.
         </p>
-        
         <div class="hero-quote">
             "My goal is remarkably simple: to deliver sophisticated corporate-grade security and tech systems straight to your doorstep across Pathapatnam and Parlakhemundi with absolute transparency."
             <br><strong style="color: var(--primary); font-style: normal; display:block; margin-top:5px;">— Panigrahi Sujith</strong>
         </div>
-        
-        <a href="#services" class="hero-btn">Explore Our Tech Services</a>
+        <a href="#quote-calc" class="hero-btn">Calculate Instant CCTV Cost</a>
     </div>
 </header>
 
@@ -824,6 +892,54 @@ body {
     </div>
 </section>
 
+<!-- NEW INTERACTIVE HIGH-CONVERSION CALCULATOR -->
+<section class="calculator-section" id="quote-calc">
+    <h2 style="text-align: center; margin: 0; font-size: 28px;">Instant CCTV Configuration Estimator</h2>
+    <p style="text-align: center; color: #94a3b8; margin: 5px 0 0 0;">Build your setup and send it directly to Sujith for final booking</p>
+    
+    <div class="calc-container">
+        <div>
+            <div class="calc-group">
+                <label for="cameraCount">Number of Cameras</label>
+                <select id="cameraCount" class="calc-select" onchange="calculateEstimate()">
+                    <option value="2">2 HD Cameras Setup</option>
+                    <option value="4" selected>4 HD Cameras Setup</option>
+                    <option value="8">8 HD IP Cameras Setup</option>
+                    <option value="16">16 High-End Corporate IP Setup</option>
+                </select>
+            </div>
+            
+            <div class="calc-group">
+                <label for="storageSize">Storage Capacity</label>
+                <select id="storageSize" class="calc-select" onchange="calculateEstimate()">
+                    <option value="1">1TB Surveillance Storage (Standard)</option>
+                    <option value="2" selected>2TB Enterprise Storage (Recommended)</option>
+                    <option value="4">4TB Server-Grade Massive Storage</option>
+                </select>
+            </div>
+
+            <div class="calc-group">
+                <label for="userLocation">Your Business / Home Location</label>
+                <select id="userLocation" class="calc-select" onchange="calculateEstimate()">
+                    <option value="Pathapatnam">Pathapatnam Area</option>
+                    <option value="Parlakhemundi">Parlakhemundi Area</option>
+                    <option value="Srikakulam">Srikakulam District Radius</option>
+                    <option value="Other">Other Location (Within 100 KM)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="price-display-box">
+            <h3 style="margin: 0; font-size: 18px; color: #cbd5e1;">Custom Field Estimate</h3>
+            <div class="estimated-value" id="calcPriceDisplay">Calculating...</div>
+            <p style="font-size: 12px; color: #94a3b8; margin: 0 0 15px 0;">Includes premium brand hardware, wiring layout, mobile sync configuration, and 1-year Support.</p>
+            <a href="#" id="calcWhatsAppBtn" target="_blank" class="calc-whatsapp-btn">
+                💬 Book This Custom Setup
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- Services Section -->
 <h2 class="section-title" id="services">Our Engineering & Support Services</h2>
 <p class="section-subtitle">Professional IT and security integrations customized for your exact requirements</p>
@@ -834,19 +950,16 @@ body {
         <h3>📹 CCTV Solutions</h3>
         <p>Premium multi-camera network setups, remote live-viewing smartphone configurations, and strategic hardware maintenance contracts.</p>
     </div>
-
     <div class="card">
         <img class="service-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=400" alt="Computers">
         <h3>💻 Computer Sales & Service</h3>
         <p>Expert custom workstation assembly, fast diagnostic chip-level laptop repairs, and high-speed storage upgrades.</p>
     </div>
-
     <div class="card">
         <img class="service-img" src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=400" alt="Maintenance">
         <h3>🛠 Infrastructure Maintenance</h3>
         <p>Annual Maintenance Contracts (AMC) to secure business networks, printers, and continuous server uptimes smoothly.</p>
     </div>
-
     <div class="card">
         <img class="service-img" src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400" alt="Software">
         <h3>🖥 Software Deployments</h3>
@@ -858,19 +971,16 @@ body {
 <section class="stats-section">
     <div class="stats-grid">
         <div class="stat-card">
-            <span class="stat-icon">⏱️</span>
-            <h3>100%</h3>
-            <p>On-Time Field Service</p>
+            <h3 style="margin:0; font-size: 40px; color: var(--primary);">100%</h3>
+            <p style="margin:5px 0 0 0;">On-Time Field Service</p>
         </div>
         <div class="stat-card">
-            <span class="stat-icon">📍</span>
-            <h3>100 KM</h3>
-            <p>Service Radius from Pathapatnam</p>
+            <h3 style="margin:0; font-size: 40px; color: var(--primary);">100 KM</h3>
+            <p style="margin:5px 0 0 0;">Service Radius from Pathapatnam</p>
         </div>
         <div class="stat-card">
-            <span class="stat-icon">🛡️</span>
-            <h3>Genuine</h3>
-            <p>Official Warranty Branded Hardware</p>
+            <h3 style="margin:0; font-size: 40px; color: var(--primary);">Genuine</h3>
+            <p style="margin:5px 0 0 0;">Official Warranty Branded Hardware</p>
         </div>
     </div>
 </section>
@@ -880,7 +990,6 @@ body {
 <p class="section-subtitle">Select a verified configuration package or request a tailored corporate quote</p>
 
 <div class="pricing-container">
-    <!-- Tier 1 -->
     <div class="price-card">
         <h3>🏠 Home Basic</h3>
         <div class="price-value">Perfect for Homes & Small Shops</div>
@@ -894,7 +1003,6 @@ body {
         <a href="https://wa.me/919490387123?text=Hi%20Sujith,%20I%20am%20interested%20in%20the%20Home%20Basic%20CCTV%20Package." target="_blank" class="price-btn">Book Installation</a>
     </div>
 
-    <!-- Tier 2 (Featured) -->
     <div class="price-card featured">
         <div class="badge">Most Popular</div>
         <h3>🏢 Business Pro</h3>
@@ -910,7 +1018,6 @@ body {
         <a href="https://wa.me/919490387123?text=Hi%20Sujith,%20I%20am%20interested%20in%20the%20Business%20Pro%20CCTV%20Package." target="_blank" class="price-btn">Book Installation</a>
     </div>
 
-    <!-- Tier 3 -->
     <div class="price-card">
         <h3>🚀 Enterprise Max</h3>
         <div class="price-value">Advanced Security Engineering</div>
@@ -926,26 +1033,22 @@ body {
     </div>
 </div>
 
-<!-- Client Reviews / Slider Component -->
+<!-- Client Reviews -->
 <h2 class="section-title">Client Success Stories</h2>
 <p class="section-subtitle">Read firsthand tracking statements from local clients we serve</p>
 
-<section class="container" style="padding-top: 0;">
+<section style="padding: 0 20px 40px 20px;">
     <div class="reviews-container">
-        <!-- Slide 1 -->
         <div class="review-slide active">
             <div class="review-stars">★★★★★</div>
             <p class="review-text">"Sujith set up the 4-camera Business Pro configuration at our commercial shop complex in Parlakhemundi. The remote phone monitoring stream works perfectly even over long distance configurations. Outstanding transparency."</p>
             <div class="review-author">— Retail Complex Owner, Parlakhemundi</div>
         </div>
-        <!-- Slide 2 -->
         <div class="review-slide">
             <div class="review-stars">★★★★★</div>
             <p class="review-text">"Excellent laptop chip repair service. Our office network operations setup was slowing down significantly, but Supani Technologies delivered fast doorstep maintenance optimization within a day right here in Pathapatnam."</p>
             <div class="review-author">— Enterprise Office Manager, Pathapatnam Area</div>
         </div>
-
-        <!-- Dot Navigation Indicators -->
         <div class="review-dots">
             <div class="dot active" onclick="setSlide(0)"></div>
             <div class="dot" onclick="setSlide(1)"></div>
@@ -953,10 +1056,7 @@ body {
     </div>
 </section>
 
-<!-- Frequently Asked Questions Accordion -->
-<h2 class="section-title">Support & Service Details</h2>
-<p class="section-subtitle">Common questions answered directly by our team</p>
-
+<!-- FAQ Accordion -->
 <div class="faq-wrapper">
     <div class="faq-item">
         <div class="faq-question">
@@ -967,88 +1067,75 @@ body {
             <p>Our core engineering team operates across a 100km radius around Pathapatnam. This means we offer lightning-fast doorstep installation and repair support inside Parlakhemundi, Srikakulam, Tekkali, Palasa, and nearby villages.</p>
         </div>
     </div>
-
-    <div class="faq-item">
-        <div class="faq-question">
-            <span>How long does a standard CCTV installation take?</span>
-            <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-            <p>Most standard setups like our Home Basic (2 cameras) or Business Pro (4 cameras) are fully configured, neatly wired, and synced to your mobile phone within a single day.</p>
-        </div>
-    </div>
-
-    <div class="faq-item">
-        <div class="faq-question">
-            <span>Do your packages include hardware warranties?</span>
-            <span class="faq-icon">+</span>
-        </div>
-        <div class="faq-answer">
-            <p>Yes, absolutely. We strictly deal in genuine, branded hardware (like Hikvision, CP Plus, etc.). Every component comes with its standard manufacturer warranty alongside our reliable local backend service.</p>
-        </div>
-    </div>
 </div>
 
 <!-- Contact Section -->
 <div class="contact" id="contact">
     <h2>Request Fast Doorstep Service</h2>
     <p style="color: var(--text-muted);">Have a technical issue? Reach out directly for an immediate on-site deployment.</p>
-    
     <div class="contact-info">📞 <a href="tel:+919490387123">9490387123</a> / <a href="tel:+919490187123">9490187123</a></div>
     <div class="contact-info">📧 <a href="mailto:supanitech@gmail.com">supanitech@gmail.com</a></div>
-    
-    <a class="whatsapp" href="https://wa.me/919490387123" target="_blank">
-        💬 Connect with Sujith on WhatsApp
-    </a>
+    <a class="whatsapp" href="https://wa.me/919490387123" target="_blank">💬 Connect on WhatsApp</a>
 </div>
 
 <div class="footer">
     Supani Technologies © 2026 | Built for Trust & Local Excellence
 </div>
 
-<!-- Global Widgets: Right Sticky WhatsApp / Left Mobile Phone Dial Button -->
-<a class="whatsapp-fixed-btn" href="https://wa.me/919490387123?text=Hi%20Sujith,%20I'm%20visiting%20your%20website%20and%20need%20assistance." target="_blank">
-    <span>💬 Live Chat</span>
-    <span style="display:none; font-size: 22px;" id="wa-mobile-icon">💬</span>
-</a>
-
+<!-- FIXED EMERGENCY MOBILE DIAL BUTTON (LEFT SIDE) -->
 <a class="mobile-call-float" href="tel:+919490387123">📞</a>
 
+<!-- NEW AUTOMATED LEAD CAPTURE POP-UP WIDGET (RIGHT SIDE) -->
+<div class="wa-chat-widget">
+    <div class="wa-popup" id="waChatPopup">
+        <div class="wa-popup-header">
+            <div class="wa-avatar">SS</div>
+            <div class="wa-status-info">
+                <h4>Supani Support</h4>
+                <p>Online • Typically replies in 5 min</p>
+            </div>
+        </div>
+        <div class="wa-popup-body">
+            <div class="wa-msg-bubble">
+                Hi there! 👋 Need a CCTV system for your home or shop? Or looking for fast laptop repair service around Pathapatnam / Parlakhemundi? 
+                <div class="wa-msg-time" id="waBubbleTime">08:00 AM</div>
+            </div>
+        </div>
+        <div class="wa-popup-footer">
+            <a href="https://wa.me/919490387123?text=Hi%20Sujith,%20I%20am%20visiting%20your%20website%20and%20want%20a%20free%20technical%20consultation%20quote." target="_blank" class="wa-direct-link">
+                Start WhatsApp Chat
+            </a>
+        </div>
+    </div>
+    <div class="wa-button" onclick="toggleWaPopup()" id="waChatBubbleButton">
+        <svg viewBox="0 0 32 32">
+            <path d="M16 2a13 13 0 0 0-11.3 19.5L3 29l7.7-1.5A13 13 0 1 0 16 2zm0 24c-2 0-4-.5-5.7-1.5l-.4-.2-4.6.9 1-4.5-.3-.4A11 11 0 1 1 16 26zM22.3 19c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.1-.7.2l-1 1.3c-.2.3-.5.3-.8.1a10.5 10.5 0 0 1-3.2-2 11.5 11.5 0 0 1-2.2-2.7c-.2-.3 0-.5.1-.7l.4-.4.3-.4c.1-.2 0-.4 0-.5L12 10.4c-.3-.8-.7-.8-.9-.8h-.8c-.3 0-.7.1-1.1.5A3.4 3.4 0 0 0 8.3 12.7c0 1.5.7 3 1.7 4.3a14.8 14.8 0 0 0 5.7 5.1c1 .4 2 .5 2.8.4.8-.1 2.3-1 2.7-1.9.3-.8.3-1.5.2-1.7s-.4-.3-.7-.4z"/>
+        </svg>
+    </div>
+</div>
 
-<!-- JavaScript Engine -->
 <script>
-    // Mobile Navigation Drawer Script Actions
     function toggleMobileMenu() {
-        const navLinks = document.getElementById('navLinks');
-        navLinks.classList.toggle('mobile-open');
+        document.getElementById('navLinks').classList.toggle('mobile-open');
     }
-    
     function closeMobileMenu() {
-        const navLinks = document.getElementById('navLinks');
-        navLinks.classList.remove('mobile-open');
+        document.getElementById('navLinks').classList.remove('mobile-open');
     }
 
-    // FAQ Accordion Handler
+    // FAQ Accordion
     document.querySelectorAll('.faq-question').forEach(button => {
         button.addEventListener('click', () => {
             const faqItem = button.parentElement;
             const answer = faqItem.querySelector('.faq-answer');
-            
             faqItem.classList.toggle('active');
-            
-            if (faqItem.classList.contains('active')) {
-                answer.style.maxHeight = answer.scrollHeight + "px";
-            } else {
-                answer.style.maxHeight = 0;
-            }
+            answer.style.maxHeight = faqItem.classList.contains('active') ? answer.scrollHeight + "px" : 0;
         });
     });
 
-    // Testimonials Reviews Slider Engine
+    // Testimonial Slide
     let currentSlide = 0;
     const slides = document.querySelectorAll('.review-slide');
     const dots = document.querySelectorAll('.dot');
-
     function setSlide(index) {
         slides[currentSlide].classList.remove('active');
         dots[currentSlide].classList.remove('active');
@@ -1056,16 +1143,52 @@ body {
         slides[currentSlide].classList.add('active');
         dots[currentSlide].classList.add('active');
     }
+    setInterval(() => { setSlide((currentSlide + 1) % slides.length); }, 6000);
 
-    // Auto rotate slides every 6 seconds
-    setInterval(() => {
-        let next = (currentSlide + 1) % slides.length;
-        setSlide(next);
-    }, 6000);
+    // --- AUTOMATED WHATSAPP POPUP TRIGGER ---
+    function toggleWaPopup() {
+        document.getElementById('waChatPopup').classList.toggle('show');
+    }
+    
+    // Automation Rule: Open chat bubble automatically 5 seconds after visitor lands on the site
+    window.addEventListener('DOMContentLoaded', () => {
+        // Set real-time inside widget bubble
+        const now = new Date();
+        document.getElementById('waBubbleTime').innerText = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        
+        setTimeout(() => {
+            document.getElementById('waChatPopup').classList.add('show');
+        }, 5000); 
+        
+        // Initialize pricing values on load
+        calculateEstimate();
+    });
 
-    // Minor responsive adjustments handler for tiny viewport rules
-    if(window.innerWidth <= 768) {
-        document.getElementById('wa-mobile-icon').style.display = 'block';
+    // --- INTERACTIVE PRICE ENGINE ---
+    function calculateEstimate() {
+        const cameras = parseInt(document.getElementById('cameraCount').value);
+        const storage = parseInt(document.getElementById('storageSize').value);
+        const location = document.getElementById('userLocation').value;
+        
+        // Base logical configurations (not strict legally binding pricing, but structural estimates)
+        let basePrice = 0;
+        if(cameras === 2) basePrice = 12500;
+        else if(cameras === 4) basePrice = 19500;
+        else if(cameras === 8) basePrice = 42000;
+        else if(cameras === 16) basePrice = 85000;
+        
+        // Add component variation layers
+        if(storage === 2) basePrice += 2500;
+        if(storage === 4) basePrice += 6500;
+        
+        // Format display values
+        document.getElementById('calcPriceDisplay').innerText = "₹" + basePrice.toLocaleString('en-IN') + "*";
+        
+        // Build customized dynamic message template strings for high-conversion text capture
+        const messageText = `Hi Sujith, I used your web estimator. I want to inquire about a package with:\n- ${cameras} Cameras\n- ${storage}TB Storage\n- Location: ${location} area.\nPlease send me full details and dynamic discount options.`;
+        
+        // Inject secure URL properties dynamically into button element
+        document.getElementById('calcWhatsAppBtn').href = "https://wa.me/919490387123?text=" + encodeURIComponent(messageText);
     }
 </script>
 
