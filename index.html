@@ -24,10 +24,10 @@ body {
     line-height: 1.6;
 }
 
-/* Navigation Bar */
+/* --- FULL-WIDTH LANDSCAPE NAVBAR --- */
 .navbar {
     background: white;
-    padding: 15px 30px;
+    padding: 15px 5%; /* Flexible padding that stretches across landscape screens */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -35,12 +35,15 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .nav-brand {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-shrink: 0; /* Prevents firm name from squishing */
 }
 
 .nav-logo {
@@ -51,9 +54,11 @@ body {
 
 .nav-brand h2 {
     margin: 0;
-    font-size: 20px;
+    font-size: 22px;
     color: var(--primary);
     letter-spacing: 0.5px;
+    font-weight: 800;
+    white-space: nowrap; /* Ensures company name stays on one line */
 }
 
 /* Mobile Toggle Hamburger Button */
@@ -64,7 +69,8 @@ body {
     cursor: pointer;
     background: none;
     border: none;
-    padding: 5px;
+    padding: 8px;
+    z-index: 1001;
 }
 
 .menu-toggle span {
@@ -77,15 +83,17 @@ body {
 
 .nav-links {
     display: flex;
-    gap: 20px;
+    gap: 24px;
+    align-items: center;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--dark);
-    font-weight: 500;
+    font-weight: 600;
     font-size: 15px;
     transition: color 0.2s;
+    white-space: nowrap;
 }
 
 .nav-links a:hover {
@@ -310,7 +318,6 @@ body {
 .stat-card p {
     margin: 0;
     color: var(--text-muted);
-    font-size: 0.95rem;
     font-weight: 600;
 }
 
@@ -643,20 +650,23 @@ body {
 }
 
 /* ======================================================== */
-/* --- IMPROVED RESPONSIVE MEDIA QUERIES ---                */
+/* --- RESPONSIVE BREAKPOINTS ---                           */
 /* ======================================================== */
 
 @media (max-width: 768px) {
     .navbar {
         padding: 15px 20px;
-        position: relative;
+    }
+
+    .nav-brand h2 {
+        font-size: 18px; /* Slightly scaled down on mobile viewports to prevent wrapping */
     }
 
     .menu-toggle {
-        display: flex; /* Show hamburger button */
+        display: flex; /* Displays mobile hamburger icon button */
     }
 
-    /* Convert Navigation links into a mobile drop-down drawer */
+    /* Mobile Navigation Dropdown Overlay Structure */
     .nav-links {
         display: none; 
         flex-direction: column;
@@ -666,25 +676,26 @@ body {
         left: 0;
         background: white;
         padding: 20px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        gap: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        gap: 0;
         box-sizing: border-box;
     }
 
-    /* This class is injected by JavaScript when clicking the hamburger */
     .nav-links.mobile-open {
         display: flex;
-    }
-
-    .nav-links li {
-        width: 100%;
     }
 
     .nav-links a {
         display: block;
         font-size: 16px;
-        padding: 8px 0;
+        padding: 12px 10px;
         border-bottom: 1px solid #edf2f7;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .nav-links a:last-child {
+        border-bottom: none;
     }
 
     .hero-section {
@@ -694,7 +705,7 @@ body {
     }
 
     .hero-image-container {
-        max-width: 280px; /* Perfect profile frame for mobile screens */
+        max-width: 280px;
     }
 
     .hero-content h1 {
@@ -707,7 +718,7 @@ body {
     }
 
     .hero-story {
-        text-align: left; /* Justify text reads poorly on narrow phone screens */
+        text-align: left;
     }
 
     .price-card.featured {
@@ -754,13 +765,15 @@ body {
 </head>
 <body>
 
+<!-- Modern Responsive Landscape Header -->
 <nav class="navbar">
     <div class="nav-brand">
         <img src="supani logo.jpeg" alt="Supani Technologies" class="nav-logo">
         <h2>SUPANI TECHNOLOGIES</h2>
     </div>
     
-    <button class="menu-toggle" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+    <!-- Mobile Hamburger Toggle Menu Trigger -->
+    <button class="menu-toggle" aria-label="Toggle Navigation Menu" onclick="toggleMobileMenu()">
         <span></span>
         <span></span>
         <span></span>
@@ -774,6 +787,7 @@ body {
     </div>
 </nav>
 
+<!-- Trust-Building Header Section -->
 <header class="hero-section" id="about">
     <div class="hero-image-container">
         <img src="sujith-real.png.jpg" alt="Panigrahi Sujith - Technical Expert" class="hero-img">
@@ -798,6 +812,7 @@ body {
     </div>
 </header>
 
+<!-- Partner Hardware Brands Row -->
 <section class="brand-marquee">
     <p>Supported Hardware & Integration Ecosystems</p>
     <div class="brand-grid">
@@ -809,6 +824,7 @@ body {
     </div>
 </section>
 
+<!-- Services Section -->
 <h2 class="section-title" id="services">Our Engineering & Support Services</h2>
 <p class="section-subtitle">Professional IT and security integrations customized for your exact requirements</p>
 
@@ -838,6 +854,7 @@ body {
     </div>
 </div>
 
+<!-- Field Performance Statistics -->
 <section class="stats-section">
     <div class="stats-grid">
         <div class="stat-card">
@@ -858,10 +875,12 @@ body {
     </div>
 </section>
 
+<!-- Pricing Section -->
 <h2 class="section-title" id="pricing">Surveillance & Service Packages</h2>
 <p class="section-subtitle">Select a verified configuration package or request a tailored corporate quote</p>
 
 <div class="pricing-container">
+    <!-- Tier 1 -->
     <div class="price-card">
         <h3>🏠 Home Basic</h3>
         <div class="price-value">Perfect for Homes & Small Shops</div>
@@ -875,6 +894,7 @@ body {
         <a href="https://wa.me/919490387123?text=Hi%20Sujith,%20I%20am%20interested%20in%20the%20Home%20Basic%20CCTV%20Package." target="_blank" class="price-btn">Book Installation</a>
     </div>
 
+    <!-- Tier 2 (Featured) -->
     <div class="price-card featured">
         <div class="badge">Most Popular</div>
         <h3>🏢 Business Pro</h3>
@@ -890,6 +910,7 @@ body {
         <a href="https://wa.me/919490387123?text=Hi%20Sujith,%20I%20am%20interested%20in%20the%20Business%20Pro%20CCTV%20Package." target="_blank" class="price-btn">Book Installation</a>
     </div>
 
+    <!-- Tier 3 -->
     <div class="price-card">
         <h3>🚀 Enterprise Max</h3>
         <div class="price-value">Advanced Security Engineering</div>
@@ -905,22 +926,26 @@ body {
     </div>
 </div>
 
+<!-- Client Reviews / Slider Component -->
 <h2 class="section-title">Client Success Stories</h2>
 <p class="section-subtitle">Read firsthand tracking statements from local clients we serve</p>
 
 <section class="container" style="padding-top: 0;">
     <div class="reviews-container">
+        <!-- Slide 1 -->
         <div class="review-slide active">
             <div class="review-stars">★★★★★</div>
             <p class="review-text">"Sujith set up the 4-camera Business Pro configuration at our commercial shop complex in Parlakhemundi. The remote phone monitoring stream works perfectly even over long distance configurations. Outstanding transparency."</p>
             <div class="review-author">— Retail Complex Owner, Parlakhemundi</div>
         </div>
+        <!-- Slide 2 -->
         <div class="review-slide">
             <div class="review-stars">★★★★★</div>
             <p class="review-text">"Excellent laptop chip repair service. Our office network operations setup was slowing down significantly, but Supani Technologies delivered fast doorstep maintenance optimization within a day right here in Pathapatnam."</p>
             <div class="review-author">— Enterprise Office Manager, Pathapatnam Area</div>
         </div>
 
+        <!-- Dot Navigation Indicators -->
         <div class="review-dots">
             <div class="dot active" onclick="setSlide(0)"></div>
             <div class="dot" onclick="setSlide(1)"></div>
@@ -928,6 +953,7 @@ body {
     </div>
 </section>
 
+<!-- Frequently Asked Questions Accordion -->
 <h2 class="section-title">Support & Service Details</h2>
 <p class="section-subtitle">Common questions answered directly by our team</p>
 
@@ -963,6 +989,7 @@ body {
     </div>
 </div>
 
+<!-- Contact Section -->
 <div class="contact" id="contact">
     <h2>Request Fast Doorstep Service</h2>
     <p style="color: var(--text-muted);">Have a technical issue? Reach out directly for an immediate on-site deployment.</p>
@@ -979,6 +1006,7 @@ body {
     Supani Technologies © 2026 | Built for Trust & Local Excellence
 </div>
 
+<!-- Global Widgets: Right Sticky WhatsApp / Left Mobile Phone Dial Button -->
 <a class="whatsapp-fixed-btn" href="https://wa.me/919490387123?text=Hi%20Sujith,%20I'm%20visiting%20your%20website%20and%20need%20assistance." target="_blank">
     <span>💬 Live Chat</span>
     <span style="display:none; font-size: 22px;" id="wa-mobile-icon">💬</span>
@@ -987,8 +1015,9 @@ body {
 <a class="mobile-call-float" href="tel:+919490387123">📞</a>
 
 
+<!-- JavaScript Engine -->
 <script>
-    // Mobile Navigation Dropdown Controller
+    // Mobile Navigation Drawer Script Actions
     function toggleMobileMenu() {
         const navLinks = document.getElementById('navLinks');
         navLinks.classList.toggle('mobile-open');
