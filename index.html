@@ -16,10 +16,6 @@
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -48,16 +44,35 @@ body {
 }
 
 .nav-logo {
-    width: 40px;
+    width: 45px;
     height: auto;
     border-radius: 6px;
 }
 
 .nav-brand h2 {
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
     color: var(--primary);
     letter-spacing: 0.5px;
+}
+
+/* Mobile Toggle Hamburger Button */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: 3px;
+    transition: var(--transition);
 }
 
 .nav-links {
@@ -75,67 +90,6 @@ body {
 
 .nav-links a:hover {
     color: var(--secondary);
-}
-
-/* Landscaped Full-Width Brand Banner */
-.brand-landscape-banner {
-    background: linear-gradient(135deg, var(--primary), #002244);
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-    box-shadow: inset 0 -5px 15px rgba(0,0,0,0.1);
-}
-
-.banner-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-}
-
-.banner-logo {
-    width: 90px;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    background: white;
-    padding: 4px;
-}
-
-.banner-title {
-    font-size: 32px;
-    font-weight: 800;
-    margin: 0;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-.banner-info-row {
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
-    justify-content: center;
-    font-size: 15px;
-    margin-top: 5px;
-    opacity: 0.9;
-}
-
-.banner-info-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.banner-info-item a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.banner-info-item a:hover {
-    text-decoration: underline;
 }
 
 /* Trust Header / Hero Section */
@@ -158,6 +112,7 @@ body {
 
 .hero-img {
     width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 20px;
     box-shadow: 0 12px 30px rgba(0,33,102,0.15);
@@ -269,11 +224,12 @@ body {
     color: var(--text-muted);
     font-size: 16px;
     margin-bottom: 40px;
+    padding: 0 15px;
 }
 
 .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
     padding: 0 20px 40px;
     max-width: 1200px;
@@ -575,9 +531,10 @@ body {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-    padding: 0 25px; 
+    padding: 0 25px;
     color: #555;
     background-color: #fafbfd;
+    border-top: 0 solid #edf2f7;
 }
 
 .faq-item.active {
@@ -585,9 +542,8 @@ body {
 }
 
 .faq-item.active .faq-answer {
-    padding-top: 15px;
-    padding-bottom: 20px;
-    border-top: 1px solid #edf2f7;
+    padding: 20px 25px;
+    border-top-width: 1px;
 }
 
 .faq-item.active .faq-icon {
@@ -604,6 +560,7 @@ body {
     text-align: center;
     box-shadow: 0 6px 15px rgba(0,0,0,0.04);
     max-width: 600px;
+    width: calc(100% - 40px);
 }
 
 .contact h2 {
@@ -614,6 +571,7 @@ body {
     font-size: 18px;
     margin: 15px 0;
     font-weight: bold;
+    word-wrap: break-word;
 }
 
 .contact-info a {
@@ -631,6 +589,7 @@ body {
     font-weight: bold;
     margin-top: 15px;
     box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+    max-width: 100%;
 }
 
 .footer {
@@ -683,42 +642,99 @@ body {
     transform: scale(1.05) translateY(-2px);
 }
 
-/* Responsive adjustments for phones */
+/* ======================================================== */
+/* --- IMPROVED RESPONSIVE MEDIA QUERIES ---                */
+/* ======================================================== */
+
 @media (max-width: 768px) {
     .navbar {
+        padding: 15px 20px;
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: flex; /* Show hamburger button */
+    }
+
+    /* Convert Navigation links into a mobile drop-down drawer */
+    .nav-links {
+        display: none; 
         flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: white;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         gap: 15px;
+        box-sizing: border-box;
     }
-    .banner-title {
-        font-size: 24px;
+
+    /* This class is injected by JavaScript when clicking the hamburger */
+    .nav-links.mobile-open {
+        display: flex;
     }
-    .banner-info-row {
-        flex-direction: column;
-        gap: 10px;
+
+    .nav-links li {
+        width: 100%;
     }
+
+    .nav-links a {
+        display: block;
+        font-size: 16px;
+        padding: 8px 0;
+        border-bottom: 1px solid #edf2f7;
+    }
+
     .hero-section {
         flex-direction: column;
         padding: 40px 20px;
         gap: 30px;
     }
+
+    .hero-image-container {
+        max-width: 280px; /* Perfect profile frame for mobile screens */
+    }
+
     .hero-content h1 {
         font-size: 28px;
+        text-align: center;
     }
+    
+    .tagline {
+        text-align: center;
+    }
+
+    .hero-story {
+        text-align: left; /* Justify text reads poorly on narrow phone screens */
+    }
+
     .price-card.featured {
         transform: scale(1);
     }
+    
+    .section-title {
+        font-size: 24px;
+        margin: 40px 0 10px;
+    }
+
     .brand-grid {
         gap: 25px;
     }
+
     .brand-item {
         font-size: 18px;
     }
+
     .mobile-call-float {
         display: flex;
     }
-    .whatsapp-fixed-btn .desktop-text {
+
+    .whatsapp-fixed-btn span {
         display: none;
     }
+
     .whatsapp-fixed-btn {
         width: 55px;
         height: 55px;
@@ -728,6 +744,7 @@ body {
         bottom: 20px;
         right: 20px;
     }
+
     .mobile-call-float {
         bottom: 20px;
         left: 20px;
@@ -742,25 +759,20 @@ body {
         <img src="supani logo.jpeg" alt="Supani Technologies" class="nav-logo">
         <h2>SUPANI TECHNOLOGIES</h2>
     </div>
-    <div class="nav-links">
-        <a href="#about">About Sujith</a>
-        <a href="#services">Services</a>
-        <a href="#pricing">Packages</a>
-        <a href="#contact">Contact</a>
+    
+    <button class="menu-toggle" aria-label="Toggle Menu" onclick="toggleMobileMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="nav-links" id="navLinks">
+        <a href="#about" onclick="closeMobileMenu()">About Sujith</a>
+        <a href="#services" onclick="closeMobileMenu()">Services</a>
+        <a href="#pricing" onclick="closeMobileMenu()">Packages</a>
+        <a href="#contact" onclick="closeMobileMenu()">Contact</a>
     </div>
 </nav>
-
-<div class="brand-landscape-banner">
-    <div class="banner-container">
-        <img src="supani logo.jpeg" alt="Supani Technologies Logo" class="banner-logo">
-        <h1 class="banner-title">Supani Technologies</h1>
-        <div class="banner-info-row">
-            <div class="banner-info-item">📍 Pathapatnam, Andhra Pradesh, India</div>
-            <div class="banner-info-item">📞 Call Us: <a href="tel:+919490387123">9490387123</a> / <a href="tel:+919490187123">9490187123</a></div>
-            <div class="banner-info-item">📧 <a href="mailto:supanitech@gmail.com">supanitech@gmail.com</a></div>
-        </div>
-    </div>
-</div>
 
 <header class="hero-section" id="about">
     <div class="hero-image-container">
@@ -768,7 +780,7 @@ body {
     </div>
     <div class="hero-content">
         <span class="tagline">Building Trust Through Local Expertise</span>
-        <h2>Meet Panigrahi Sujith</h2>
+        <h1>Meet Panigrahi Sujith</h1>
         
         <p class="hero-story">
             Born and raised in Srikakulam, technology has always been my core passion. Over the years, I noticed that homes and businesses across our locality often struggle to find honest, high-end technical support without traveling to major distant cities. To solve this gap, I founded Supani Technologies right here in our community.
@@ -802,7 +814,7 @@ body {
 
 <div class="services">
     <div class="card">
-        <img class="service-img" src="prasad-technician.png.png" alt="CCTV Solutions Technician">
+        <img class="service-img" src="https://images.unsplash.com/photo-1558002038-1055907df827?w=400" alt="CCTV">
         <h3>📹 CCTV Solutions</h3>
         <p>Premium multi-camera network setups, remote live-viewing smartphone configurations, and strategic hardware maintenance contracts.</p>
     </div>
@@ -896,7 +908,7 @@ body {
 <h2 class="section-title">Client Success Stories</h2>
 <p class="section-subtitle">Read firsthand tracking statements from local clients we serve</p>
 
-<section style="padding-top: 0; margin-bottom: 60px;">
+<section class="container" style="padding-top: 0;">
     <div class="reviews-container">
         <div class="review-slide active">
             <div class="review-stars">★★★★★</div>
@@ -926,7 +938,7 @@ body {
             <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-            <p style="margin: 0; padding: 15px 0;">Our core engineering team operates across a 100km radius around Pathapatnam. This means we offer lightning-fast doorstep installation and repair support inside Parlakhemundi, Srikakulam, Tekkali, Palasa, and nearby villages.</p>
+            <p>Our core engineering team operates across a 100km radius around Pathapatnam. This means we offer lightning-fast doorstep installation and repair support inside Parlakhemundi, Srikakulam, Tekkali, Palasa, and nearby villages.</p>
         </div>
     </div>
 
@@ -936,7 +948,7 @@ body {
             <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-            <p style="margin: 0; padding: 15px 0;">Most standard setups like our Home Basic (2 cameras) or Business Pro (4 cameras) are fully configured, neatly wired, and synced to your mobile phone within a single day.</p>
+            <p>Most standard setups like our Home Basic (2 cameras) or Business Pro (4 cameras) are fully configured, neatly wired, and synced to your mobile phone within a single day.</p>
         </div>
     </div>
 
@@ -946,7 +958,7 @@ body {
             <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-            <p style="margin: 0; padding: 15px 0;">Yes, absolutely. We strictly deal in genuine, branded hardware (like Hikvision, CP Plus, etc.). Every component comes with its standard manufacturer warranty alongside our reliable local backend service.</p>
+            <p>Yes, absolutely. We strictly deal in genuine, branded hardware (like Hikvision, CP Plus, etc.). Every component comes with its standard manufacturer warranty alongside our reliable local backend service.</p>
         </div>
     </div>
 </div>
@@ -955,10 +967,7 @@ body {
     <h2>Request Fast Doorstep Service</h2>
     <p style="color: var(--text-muted);">Have a technical issue? Reach out directly for an immediate on-site deployment.</p>
     
-    <div class="contact-info">
-        📍 Pathapatnam, Andhra Pradesh, India<br>
-        📞 <a href="tel:+919490387123">9490387123</a> / <a href="tel:+919490187123">9490187123</a>
-    </div>
+    <div class="contact-info">📞 <a href="tel:+919490387123">9490387123</a> / <a href="tel:+919490187123">9490187123</a></div>
     <div class="contact-info">📧 <a href="mailto:supanitech@gmail.com">supanitech@gmail.com</a></div>
     
     <a class="whatsapp" href="https://wa.me/919490387123" target="_blank">
@@ -971,14 +980,25 @@ body {
 </div>
 
 <a class="whatsapp-fixed-btn" href="https://wa.me/919490387123?text=Hi%20Sujith,%20I'm%20visiting%20your%20website%20and%20need%20assistance." target="_blank">
-    <span class="desktop-text">💬 Live Chat</span>
-    <span id="wa-mobile-icon" style="display:none; font-size: 22px;">💬</span>
+    <span>💬 Live Chat</span>
+    <span style="display:none; font-size: 22px;" id="wa-mobile-icon">💬</span>
 </a>
 
 <a class="mobile-call-float" href="tel:+919490387123">📞</a>
 
 
 <script>
+    // Mobile Navigation Dropdown Controller
+    function toggleMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.toggle('mobile-open');
+    }
+    
+    function closeMobileMenu() {
+        const navLinks = document.getElementById('navLinks');
+        navLinks.classList.remove('mobile-open');
+    }
+
     // FAQ Accordion Handler
     document.querySelectorAll('.faq-question').forEach(button => {
         button.addEventListener('click', () => {
@@ -988,7 +1008,7 @@ body {
             faqItem.classList.toggle('active');
             
             if (faqItem.classList.contains('active')) {
-                answer.style.maxHeight = (answer.scrollHeight + 40) + "px";
+                answer.style.maxHeight = answer.scrollHeight + "px";
             } else {
                 answer.style.maxHeight = 0;
             }
@@ -1001,7 +1021,6 @@ body {
     const dots = document.querySelectorAll('.dot');
 
     function setSlide(index) {
-        if(index >= slides.length || index < 0) return;
         slides[currentSlide].classList.remove('active');
         dots[currentSlide].classList.remove('active');
         currentSlide = index;
@@ -1015,10 +1034,9 @@ body {
         setSlide(next);
     }, 6000);
 
-    // Responsive Mobile Layout adjustments
+    // Minor responsive adjustments handler for tiny viewport rules
     if(window.innerWidth <= 768) {
-        const mobileIcon = document.getElementById('wa-mobile-icon');
-        if(mobileIcon) mobileIcon.style.display = 'block';
+        document.getElementById('wa-mobile-icon').style.display = 'block';
     }
 </script>
 
